@@ -1,6 +1,4 @@
-
 import java.util.ArrayList;
-import Games.*;
 
 public class ThemParkMain {
     public static  void main(String[] args) {
@@ -31,6 +29,9 @@ public class ThemParkMain {
 
         showAvailableRides(rides);
         Ride selectedRide =  Visitor.selectRide(rides);
+        //((RollerCoaster) selectedRide).getMoney();
+        selectedRide.checkTicket(operators, selectedRide);
+        selectedRide.startRide(EntranceTicketCounter.visitorArrayList, selectedRide);
     }
 
     private static void createOperator(ArrayList<Operator> operators) {

@@ -1,4 +1,3 @@
-import Games.Ride;
 import java.util.ArrayList;
 
 public class Visitor {
@@ -23,6 +22,16 @@ public class Visitor {
         System.out.println("--------------------------------------------------------");
         System.out.println();
     }
+
+    public Ticket getTicket(){
+        return this.ticket;
+    }
+
+    public void setWallet(int wallet) {
+        this.wallet -= wallet;
+        System.out.println("Your new Wallet is - " + this.wallet);
+    }
+
 
     public static Ride selectRide(ArrayList<Ride> rides){
         System.out.print("Enter your Selection - ");
