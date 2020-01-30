@@ -32,15 +32,15 @@ public class EntranceTicketCounter {
         String category = "";
         if (cat == 1){
             category = "Adult";
-            visitorArrayList.add(new Visitor(name, age, gender, category, new Ticket(++ticketNumber, category, name,  date, time)));
+            visitorArrayList.add(new Visitor(name, age, gender, category, new Ticket(++ticketNumber, category, name,  date, Integer.parseInt(time))));
         }
         else if (cat == 2){
             category = "Child";
-            visitorArrayList.add(new Visitor(name, age, gender, category, new Ticket(++ticketNumber, category, name, date, time)));
+            visitorArrayList.add(new Visitor(name, age, gender, category, new Ticket(++ticketNumber, category, name, date,  Integer.parseInt(time))));
         }
         else{
             category = "Senior";
-            visitorArrayList.add(new Visitor(name, age, gender, category, new Ticket(++ticketNumber, category, name, date, time)));
+            visitorArrayList.add(new Visitor(name, age, gender, category, new Ticket(++ticketNumber, category, name, date,  Integer.parseInt(time))));
         }
     }
 }

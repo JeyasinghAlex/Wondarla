@@ -31,7 +31,7 @@ public class ThemParkMain {
         Ride selectedRide =  Visitor.selectRide(rides);
         //((RollerCoaster) selectedRide).getMoney();
         selectedRide.checkTicket(operators, selectedRide);
-        selectedRide.startRide(EntranceTicketCounter.visitorArrayList, selectedRide);
+        selectedRide.startRide(EntranceTicketCounter.visitorArrayList, selectedRide, operators);
     }
 
     private static void createOperator(ArrayList<Operator> operators) {

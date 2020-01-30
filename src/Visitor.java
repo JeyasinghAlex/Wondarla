@@ -32,6 +32,9 @@ public class Visitor {
         System.out.println("Your new Wallet is - " + this.wallet);
     }
 
+    public String getName(){
+        return this.name;
+    }
 
     public static Ride selectRide(ArrayList<Ride> rides){
         System.out.print("Enter your Selection - ");
