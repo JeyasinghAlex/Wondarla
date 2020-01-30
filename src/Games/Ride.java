@@ -2,13 +2,13 @@ package Games;
 
 public class Ride {
 
-    private String rideName;
-    private int amount;
-    private String startTime;
-    private String endTime;
-    private boolean adult;
-    private boolean child;
-    private boolean senior;
+    protected String rideName;
+    protected int amount;
+    protected String startTime;
+    protected String endTime;
+    protected boolean adult;
+    protected boolean child;
+    protected boolean senior;
 
     public Ride(String rideName, int amount, String startTime, String endTime, boolean adult, boolean child, boolean senior) {
         this.rideName = rideName;
@@ -39,4 +39,5 @@ public class Ride {
                 ", senior = " + senior +
                 "}";
     }
+
 }

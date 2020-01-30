@@ -1,19 +1,11 @@
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 
-final class TicketCounter {
+final class EntranceTicketCounter {
 
-    private static TicketCounter ticketCounter = new TicketCounter();
     private  static int ticketNumber = 100;
-    private TicketCounter(){
+    public static  ArrayList<Visitor> visitorArrayList = new ArrayList<>();
 
-    }
-
-    private static  ArrayList<Visitor> visitorArrayList = new ArrayList<>();
-    public static TicketCounter getInstance(){
-        return ticketCounter;
-    }
 
     public void receiveTicket() {
         System.out.print("Enter your Name - ");

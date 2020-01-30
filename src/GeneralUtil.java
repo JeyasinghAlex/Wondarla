@@ -1,7 +1,8 @@
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-final class GeneralUtil {
+public class GeneralUtil {
 
     private static Scanner scan = new Scanner(System.in);
     private static GeneralUtil generalUtil = new GeneralUtil();

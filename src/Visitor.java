@@ -1,5 +1,4 @@
 import Games.Ride;
-
 import java.util.ArrayList;
 
 public class Visitor {
