@@ -1,3 +1,5 @@
+package Games;
+
 public class Ride {
 
     private String rideName;
@@ -18,6 +20,13 @@ public class Ride {
         this.senior = senior;
     }
 
+    public Ride(){
+
+    }
+
+    public String getRideName(){
+        return this.rideName;
+    }
     @Override
     public String toString() {
         return "Ride { " +
