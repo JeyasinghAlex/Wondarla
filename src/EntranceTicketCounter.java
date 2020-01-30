@@ -28,19 +28,19 @@ public class EntranceTicketCounter {
         LocalDate date = LocalDate.now();
         //LocalTime time = LocalTime.now();
         System.out.print("What is the time Now  ? - ");
-        String time = GeneralUtil.getInstance().getString();
+        int time = Integer.parseInt(GeneralUtil.getInstance().getString());
         String category = "";
         if (cat == 1){
             category = "Adult";
-            visitorArrayList.add(new Visitor(name, age, gender, category, new Ticket(++ticketNumber, category, name,  date, Integer.parseInt(time))));
+            visitorArrayList.add(new Visitor(name, age, gender, category, new Ticket(++ticketNumber, category, name,  date, time ), time));
         }
         else if (cat == 2){
             category = "Child";
-            visitorArrayList.add(new Visitor(name, age, gender, category, new Ticket(++ticketNumber, category, name, date,  Integer.parseInt(time))));
+            visitorArrayList.add(new Visitor(name, age, gender, category, new Ticket(++ticketNumber, category, name, date,  time), time));
         }
         else{
             category = "Senior";
-            visitorArrayList.add(new Visitor(name, age, gender, category, new Ticket(++ticketNumber, category, name, date,  Integer.parseInt(time))));
+            visitorArrayList.add(new Visitor(name, age, gender, category, new Ticket(++ticketNumber, category, name, date, time), time));
         }
     }
 }

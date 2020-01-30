@@ -7,16 +7,16 @@ public class Visitor {
     private int age;
     private String gender;
     private String category;
-    private int height;
-    private int weight;
+    private int time;
     private Ticket ticket;
 
-    public Visitor( String name, int age, String gender, String category, Ticket ticket) {
+    public Visitor( String name, int age, String gender, String category, Ticket ticket, int time) {
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.category = category;
         this.ticket = ticket;
+        this.time = time;
         System.out.println("--------------------------------------------------------");
         System.out.println("Collect Your " + this.ticket.toString());
         System.out.println("--------------------------------------------------------");
@@ -32,8 +32,21 @@ public class Visitor {
         System.out.println("Your new Wallet is - " + this.wallet);
     }
 
+    public int getWallet() {
+        return this.wallet;
+    }
+
     public String getName(){
         return this.name;
+    }
+
+    public int getTime(){
+        return this.time;
+    }
+
+    public void setTime(int time){
+        this.time = time+1;
+        System.out.println("--------- Time is - " + this.time);
     }
 
     public static Ride selectRide(ArrayList<Ride> rides){
@@ -45,4 +58,19 @@ public class Visitor {
             System.out.println("Invalid Selection");
         return rides.get(selectedRide-1);
     }
+
+    @Override
+    public String toString() {
+        return "Visitor{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", gender='" + gender + '\'' +
+                ", category='" + category + '\'' +
+                '}';
+    }
+
+    public void orderFood(){
+        ThemParkMain.canteen.showMenuCard();
+    }
+
 }

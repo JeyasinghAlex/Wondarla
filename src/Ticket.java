@@ -5,7 +5,6 @@ public class Ticket {
     private int ticketNumber;
     private String holder;
     private String category;
-   // private boolean status;
     private LocalDate date;
     private int time;
 
@@ -20,12 +19,8 @@ public class Ticket {
         return this.ticketNumber;
     }
 
-    public int getTime() {
-        return time;
-    }
-
-    public void setTime(int time) {
-        this.time = time;
+    public String getCategory(){
+        return this.category;
     }
 
     @Override
