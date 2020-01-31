@@ -1,6 +1,12 @@
 public class Main {
 
-    public  static void showMenu(){
+    static ThemPark themPark = new ThemPark();
+    public  static void main(String[] arg){
+        themPark.main();
+        showMenu();
+    }
+
+    public static void showMenu(){
         System.out.println("\n");
         System.out.println("1) Configuration of Game");
         System.out.println("2) Visitor Registration");
@@ -16,27 +22,27 @@ public class Main {
         switch (option)
         {
             case 1:
-                ThemParkMain.configurationGame();
+                themPark.configurationGame();
                 break;
             case 2:
-                ThemParkMain.visitorRegistration();
+                themPark.visitorRegistration();
                 break;
             case 3:
-                ThemParkMain.showAvailableRides();
+                themPark.showAvailableRides();
                 break;
             case 4:
-                ThemParkMain.startRide();
+                themPark.startRide();
                 break;
             case 5:
                 break;
             case 6:
-                ThemParkMain.printVisitorDetails();
+                themPark.printVisitorDetails();
                 break;
             case 7:
-                ThemParkMain.printGameEarningDetails();
+                themPark.printGameEarningDetails();
                 break;
             case 8:
-                ThemParkMain.checkWallet();
+                themPark.checkWallet();
                 break;
             case 9:
                 break;

@@ -4,7 +4,7 @@ public class Server {
 
       private String name;
       private int tips;
-      ArrayList<Food> orders = new ArrayList<>();
+      Food orders = new Food();
 
       public Server(String name, int tips) {
             this.name = name;

@@ -69,8 +69,16 @@ public class Visitor {
                 '}';
     }
 
-    public void orderFood(){
-        ThemParkMain.canteen.showMenuCard();
+    public static Visitor orderFood(){
+        Visitor visitor = null;
+        System.out.print("Enter your Ticket Number - ");
+        int ticket  = GeneralUtil.getInstance().checkAndReturnValidInteger();
+        int length = Main.themPark.ticketCounter.visitorArrayList.size();
+        for(int i = 0; i < length; i++){
+            if(ticket == Main.themPark.ticketCounter.visitorArrayList.get(i).ticket.getTicketNumber()){
+                return Main.themPark.ticketCounter.visitorArrayList.get(i);
+            }
+        }
+        return visitor;
     }
-
 }

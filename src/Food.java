@@ -10,6 +10,11 @@ public class Food {
         this.quantity = quantity;
     }
 
+    public Food(){
+
+    }
+
+
     public void setName(String name) {
         this.name = name;
     }
@@ -19,12 +24,9 @@ public class Food {
     }
 
     public void setQuantity(int quantity) {
-        this.quantity += quantity;
+        this.quantity  -= quantity;
     }
-
-    public void takeQuantity(int quantity){
-        this.quantity -= quantity;
-    }
+   // public void ser
     public String getName() {
         return name;
     }

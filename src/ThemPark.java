@@ -1,22 +1,23 @@
 import java.util.ArrayList;
 
-public class ThemParkMain {
+public class ThemPark {
 
-    public static EntranceTicketCounter ticketCounter = new EntranceTicketCounter();
-    public static Canteen canteen = new Canteen();
-    public static ArrayList<Ride> rides = new ArrayList<>();
-    public static  ArrayList<Operator> operators = new ArrayList<>();
+    public  EntranceTicketCounter ticketCounter = new EntranceTicketCounter();
+    public  Canteen canteen = new Canteen();
+    public  ArrayList<Ride> rides = new ArrayList<>();
+    public   ArrayList<Operator> operators = new ArrayList<>();
     public int entranceAmount;
 
-    public static  void main(String[] args) {
-        System.out.println("--------------------------------------------------------");
-        System.out.println("|                    Welcome to Theme Park                 |");
-        System.out.println("--------------------------------------------------------");
-        createOperator(operators);
-        Main.showMenu();
-    }
+        public void main(){
+            System.out.println("--------------------------------------------------------");
+            System.out.println("|                    Welcome to Theme Park                 |");
+            System.out.println("--------------------------------------------------------");
+            createOperator();
+            canteen.createFood();
+        }
 
-    public static void configurationGame(){
+
+    public  void configurationGame(){
         boolean result;
         int getOperator = 0;
         do {
@@ -29,7 +30,7 @@ public class ThemParkMain {
         Main.showMenu();
     }
 
-    public static void visitorRegistration(){
+    public  void visitorRegistration(){
         boolean result;
         do {
             ticketCounter.receiveTicket();
@@ -38,20 +39,20 @@ public class ThemParkMain {
         Main.showMenu();
     }
 
-    public static void startRide(){
+    public  void startRide(){
         Ride selectedRide =  Visitor.selectRide(rides);
         //((RollerCoaster) selectedRide).getMoney();
         selectedRide.startRide(EntranceTicketCounter.visitorArrayList, selectedRide, operators);
         Main.showMenu();
     }
-        public static void printVisitorDetails() {
+        public  void printVisitorDetails() {
             for (int i = 0; i < EntranceTicketCounter.visitorArrayList.size(); i++) {
                 System.out.println(EntranceTicketCounter.visitorArrayList.get(i).toString());
             }
             Main.showMenu();
         }
 
-         public static void printGameEarningDetails() {
+         public  void printGameEarningDetails() {
              for(int i = 0; i < operators.size(); i++){
                  System.out.println("--------------------"+operators.get(i).getHisGame()+ "-------------------------------");
                  if(operators.get(i).getHisGame() != null)
@@ -62,14 +63,14 @@ public class ThemParkMain {
              Main.showMenu();
          }
 
-       public static void checkWallet(){
+       public  void checkWallet(){
             for(int i = 0; i < EntranceTicketCounter.visitorArrayList.size(); i++){
                 System.out.println(EntranceTicketCounter.visitorArrayList.get(i).getTicket().getTicketNumber() + ") Available balance is - " +EntranceTicketCounter.visitorArrayList.get(i).getWallet());
             }
            Main.showMenu();
         }
 
-    private static void createOperator(ArrayList<Operator> operators) {
+    private  void createOperator() {
         operators.add(new Operator("Alex"));
         operators.add(new Operator("Kamalesh"));
         operators.add(new Operator("Senthil"));
@@ -77,7 +78,7 @@ public class ThemParkMain {
         operators.add(new Operator("Darshon"));
     }
 
-    public static void showAvailableRides(){
+    public  void showAvailableRides(){
         System.out.println("--------------------------------------------------------\n");
         System.out.println("Today Available Rides");
         for(int selectedRide = 0; selectedRide < rides.size(); selectedRide++){

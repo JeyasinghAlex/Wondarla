@@ -1,53 +1,70 @@
 import java.util.ArrayList;
-
 public class Canteen {
 
-   private  KallaPetti kallaPetti = new KallaPetti();
    private ArrayList<Server> servers = new ArrayList<>();
-   public  ArrayList<Food> foods = new ArrayList<>();
-   public Kitchen kitchen = new Kitchen();
+   private ArrayList<Food> foods = new ArrayList<>();
+   private CanteenMoneyCollector moneyCollector = new CanteenMoneyCollector();
 
-   public void makeFood(){
-        foods.add(new Briyani("Chicken", 120, 10));
-        foods.add(new Kfc("Bucket Chicken", 270, 15));
-        foods.add(new TamilFood("Rice", 90, 25));
-        foods.add(new Chinese("Hot and Sour Soup", 50, 30));
-        foods.add(new IceCream("cha-cho bar", 25, 150));
-        foods.add(new CoolDring("Coca cola", 50, 50));
-   }
+
+    public void createFood(){
+        foods.add(new Food("Briyani",  130,  20));
+        foods.add(new Food("Dhosa",  30,  30));
+        foods.add(new Food("Rise",  90,  15));
+        foods.add(new Food("Chicken Fry",  80,  10));
+        foods.add(new Food("Parotta",  10,  50));
+        createServer();
+    }
+
    public void showMenuCard(){
-       for (int food = 0; food < foods.size(); food++){
-           System.out.println(food+1+") "+foods.get(food).toString());
-       }
+        for (int i = 0; i < foods.size(); i++){
+            System.out.println(foods.get(i).toString());
+        }
+        CanteenMain.showMain();
    }
 
-   public void selectServer(){
+   public void orderFood(Visitor visitor){
+        if(visitor != null){
+            System.out.print("Enter your Option - ");
+            int food = GeneralUtil.getInstance().checkAndReturnValidInteger();
+            System.out.print("Enter the number of Quantity - ");
+            int quantity = GeneralUtil.getInstance().checkAndReturnValidInteger();
+//            if(quantity > foods.get(food-1).getQuantity())
+//                foods.get(food-1).
+            int price = foods.get(food-1).getPrice();
+            if(visitor.getWallet() > (price * quantity)){
+                moneyCollector.setAmount(price * quantity);
+                visitor.setWallet(price * quantity);
+                foods.get(food-1).setQuantity(quantity);
+            }else{
+                System.out.println("Insufficient Balance");
+                showMenuCard();
+            }
+        }else{
+            System.out.println("Invalid Ticket Number");
+            CanteenMain.showMain();
+        }
+   }
+
+   public Server selectServer(){
        Server tempServer;
+       Server orderServer;
        for(int i = 0; i < servers.size(); i++){
            if(servers.get(i).getTips() < servers.get(i+1).getTips()){
-               //tempServer =
+               for(int j = i+1; j < servers.size(); j++){
+                   if(servers.get(i).getTips() < servers.get(j).getTips()){
+                       tempServer = servers.get(i);
+                       servers.set(i, servers.get(i+1));
+                       servers.set(i+1, tempServer);
+                   }
+               }
            }
        }
-   }
-
-   public void orderItem(){
-       System.out.println("Select the item - ");
-       int item = GeneralUtil.getInstance().checkAndReturnValidInteger();
-       String orderName = foods.get(item-1).getName();
-       int price = foods.get(item-1).getPrice();
-       System.out.print("Enter the number of Quantity - ");
-       int quantity = GeneralUtil.getInstance().checkAndReturnValidInteger();
-       if(quantity > foods.get(item-1).getQuantity())
-           foods.get(item-1).setQuantity(kitchen.makeExtraItem(quantity));
-       foods.get(item-1).takeQuantity(quantity);
-      // kallaPetti.calculateMoney(price, quantity);
+       return servers.get(0);
    }
 
    public void createServer(){
-       servers.add(new Server("Mathen", 0));
-       servers.add(new Server("Vignesh", 0));
+       servers.add(new Server("Santhosh", 0));
        servers.add(new Server("Ebbu", 0));
-       servers.add(new Server("Dharson", 0));
        servers.add(new Server("Luu", 0));
    }
 }
