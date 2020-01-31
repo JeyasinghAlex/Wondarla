@@ -34,6 +34,7 @@ public class Main {
                 themPark.startRide();
                 break;
             case 5:
+                CanteenMain.showMain();
                 break;
             case 6:
                 themPark.printVisitorDetails();

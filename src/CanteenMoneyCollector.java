@@ -1,7 +1,8 @@
 public class CanteenMoneyCollector {
 
     private int amount;
-    public void setAmount(int amount) {
+    public void setAmount(int amount, Server server) {
+        server.setTips((amount/100)*10);
         this.amount += amount;
         System.out.println("Canteen kalla is - " + this.amount);
     }

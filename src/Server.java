@@ -1,10 +1,8 @@
-import java.util.ArrayList;
 
 public class Server {
 
       private String name;
       private int tips;
-      Food orders = new Food();
 
       public Server(String name, int tips) {
             this.name = name;
@@ -15,12 +13,8 @@ public class Server {
             return name;
       }
 
-      public void setName(String name) {
-            this.name = name;
-      }
-
       public void setTips(int tips) {
-            this.tips = tips;
+            this.tips += tips;
       }
 
       public int getTips() {

@@ -15,8 +15,9 @@ public class CanteenMain {
                 break;
             case 2:
                 Server server = canteen.selectServer();
+                System.out.println("Server  - " + server.getName() + " handle the Order");
                 Visitor visitor =  Visitor.orderFood();
-               canteen.orderFood(visitor);
+               canteen.orderFood(visitor, server);
                 break;
             case 3:
                 Main.showMenu();

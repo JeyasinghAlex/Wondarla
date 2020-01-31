@@ -10,11 +10,6 @@ public class Food {
         this.quantity = quantity;
     }
 
-    public Food(){
-
-    }
-
-
     public void setName(String name) {
         this.name = name;
     }

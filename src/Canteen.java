@@ -21,7 +21,7 @@ public class Canteen {
         CanteenMain.showMain();
    }
 
-   public void orderFood(Visitor visitor){
+   public void orderFood(Visitor visitor, Server server){
         if(visitor != null){
             System.out.print("Enter your Option - ");
             int food = GeneralUtil.getInstance().checkAndReturnValidInteger();
@@ -35,7 +35,7 @@ public class Canteen {
 
             int price = foods.get(food-1).getPrice();
             if(visitor.getWallet() > (price * quantity)){
-                moneyCollector.setAmount(price * quantity);
+                moneyCollector.setAmount((price * quantity), server);
                 visitor.setWallet(price * quantity);
                 foods.get(food-1).setQuantity(quantity);
             }else{
@@ -50,15 +50,12 @@ public class Canteen {
 
    public Server selectServer(){
        Server tempServer;
-       Server orderServer;
        for(int i = 0; i < servers.size(); i++){
-           if(servers.get(i).getTips() < servers.get(i+1).getTips()){
-               for(int j = i+1; j < servers.size(); j++){
-                   if(servers.get(i).getTips() < servers.get(j).getTips()){
-                       tempServer = servers.get(i);
-                       servers.set(i, servers.get(i+1));
-                       servers.set(i+1, tempServer);
-                   }
+           for(int j = i+1; j < servers.size(); j++){
+               if(servers.get(i).getTips() > servers.get(j).getTips()){
+                   tempServer = servers.get(i);
+                   servers.set(i, servers.get(j));
+                   servers.set(j, tempServer);
                }
            }
        }
