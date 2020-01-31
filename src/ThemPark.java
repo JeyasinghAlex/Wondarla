@@ -41,6 +41,11 @@ public class ThemPark {
     }
 
     public  void startRide(){
+        System.out.println("Today Available Rides");
+        for(int selectedRide = 0; selectedRide < rides.size(); selectedRide++){
+            System.out.println(selectedRide+1+") "+rides.get(selectedRide).toString());
+        }
+        System.out.println("--------------------------------------------------------");
         Ride selectedRide =  Visitor.selectRide(rides);
         //((RollerCoaster) selectedRide).getMoney();
         selectedRide.startRide(Main.themPark.ticketCounter.visitorArrayList, selectedRide, operators);
@@ -85,7 +90,7 @@ public class ThemPark {
         for(int selectedRide = 0; selectedRide < rides.size(); selectedRide++){
             System.out.println(selectedRide+1+") "+rides.get(selectedRide).toString());
         }
-        System.out.println("--------------------------------------------------------\n");
+        System.out.println("--------------------------------------------------------");
         Main.showMenu();
     }
 }

@@ -29,7 +29,7 @@ public class Visitor {
 
     public void setWallet(int wallet) {
         this.wallet -= wallet;
-        System.out.println("Your new Wallet is - " + this.wallet);
+        System.out.println(this.name + " your new Wallet is - " + this.wallet);
     }
 
     public int getWallet() {

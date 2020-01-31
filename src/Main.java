@@ -16,7 +16,7 @@ public class Main {
         System.out.println("6) Print Visitor Details");
         System.out.println("7) Print Game Earning Details");
         System.out.println("8) Chuck Visitor Wallet");
-        System.out.println("9) Print total Earning of Entrance TicketCounter");
+        System.out.println("9) Print total Earning of Entrance TicketCounter\n");
         System.out.print("Enter your Option - ");
         int option = GeneralUtil.getInstance().checkAndReturnValidInteger();
         switch (option)

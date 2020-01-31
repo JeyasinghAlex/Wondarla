@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class EntranceTicketCounter {
 
     private  static int ticketNumber = 100;
+    private int amount;
     public ArrayList<Visitor> visitorArrayList = new ArrayList<>();
 
     public void receiveTicket() {
@@ -42,5 +43,7 @@ public class EntranceTicketCounter {
             category = "Senior";
             visitorArrayList.add(new Visitor(name, age, gender, category, new Ticket(++ticketNumber, category, name, date, time), time));
         }
+        visitorArrayList.get(visitorArrayList.size() - 1).setWallet(30);
+        this.amount += 30;
     }
 }
