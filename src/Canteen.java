@@ -5,7 +5,6 @@ public class Canteen {
    private ArrayList<Food> foods = new ArrayList<>();
    private CanteenMoneyCollector moneyCollector = new CanteenMoneyCollector();
 
-
     public void createFood(){
         foods.add(new Food("Briyani",  130,  20));
         foods.add(new Food("Dhosa",  30,  30));
@@ -28,8 +27,12 @@ public class Canteen {
             int food = GeneralUtil.getInstance().checkAndReturnValidInteger();
             System.out.print("Enter the number of Quantity - ");
             int quantity = GeneralUtil.getInstance().checkAndReturnValidInteger();
-//            if(quantity > foods.get(food-1).getQuantity())
-//                foods.get(food-1).
+
+            if(quantity > foods.get(food-1).getQuantity()){
+                foods.get(food-1).importQuantity(quantity);
+                moneyCollector.importCharge((quantity * foods.get(food-1).getPrice()/100) * 10);
+            }
+
             int price = foods.get(food-1).getPrice();
             if(visitor.getWallet() > (price * quantity)){
                 moneyCollector.setAmount(price * quantity);

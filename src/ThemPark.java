@@ -6,6 +6,7 @@ public class ThemPark {
     public  Canteen canteen = new Canteen();
     public  ArrayList<Ride> rides = new ArrayList<>();
     public   ArrayList<Operator> operators = new ArrayList<>();
+   // public ArrayList<Visitor> visitorArrayList = new ArrayList<>();
     public int entranceAmount;
 
         public void main(){
@@ -42,12 +43,12 @@ public class ThemPark {
     public  void startRide(){
         Ride selectedRide =  Visitor.selectRide(rides);
         //((RollerCoaster) selectedRide).getMoney();
-        selectedRide.startRide(EntranceTicketCounter.visitorArrayList, selectedRide, operators);
+        selectedRide.startRide(Main.themPark.ticketCounter.visitorArrayList, selectedRide, operators);
         Main.showMenu();
     }
         public  void printVisitorDetails() {
-            for (int i = 0; i < EntranceTicketCounter.visitorArrayList.size(); i++) {
-                System.out.println(EntranceTicketCounter.visitorArrayList.get(i).toString());
+            for (int i = 0; i < Main.themPark.ticketCounter.visitorArrayList.size(); i++) {
+                System.out.println(Main.themPark.ticketCounter.visitorArrayList.get(i).toString());
             }
             Main.showMenu();
         }
@@ -64,8 +65,8 @@ public class ThemPark {
          }
 
        public  void checkWallet(){
-            for(int i = 0; i < EntranceTicketCounter.visitorArrayList.size(); i++){
-                System.out.println(EntranceTicketCounter.visitorArrayList.get(i).getTicket().getTicketNumber() + ") Available balance is - " +EntranceTicketCounter.visitorArrayList.get(i).getWallet());
+            for(int i = 0; i < Main.themPark.ticketCounter.visitorArrayList.size(); i++){
+                System.out.println(Main.themPark.ticketCounter.visitorArrayList.get(i).getTicket().getTicketNumber() + ") Available balance is - " +Main.themPark.ticketCounter.visitorArrayList.get(i).getWallet());
             }
            Main.showMenu();
         }

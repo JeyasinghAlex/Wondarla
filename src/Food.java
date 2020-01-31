@@ -26,7 +26,10 @@ public class Food {
     public void setQuantity(int quantity) {
         this.quantity  -= quantity;
     }
-   // public void ser
+    public void importQuantity(int quantity){
+        this.quantity += quantity;
+    }
+
     public String getName() {
         return name;
     }

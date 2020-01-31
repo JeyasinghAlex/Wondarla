@@ -1,4 +1,3 @@
-
 public class CanteenMain {
 
     static Canteen canteen = Main.themPark.canteen;
@@ -15,6 +14,7 @@ public class CanteenMain {
                 canteen.showMenuCard();
                 break;
             case 2:
+                Server server = canteen.selectServer();
                 Visitor visitor =  Visitor.orderFood();
                canteen.orderFood(visitor);
                 break;
