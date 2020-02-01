@@ -16,14 +16,15 @@ public class Canteen {
 
    public void showMenuCard(){
         for (int i = 0; i < foods.size(); i++){
-            System.out.println(foods.get(i).toString());
+            System.out.println(i+1+")"+ foods.get(i).toString());
         }
+        System.out.println();
         CanteenMain.showMain();
    }
 
    public void orderFood(Visitor visitor, Server server){
         if(visitor != null){
-            System.out.print("Enter your Option - ");
+            System.out.print(" Which food you need ? - ");
             int food = GeneralUtil.getInstance().checkAndReturnValidInteger();
             System.out.print("Enter the number of Quantity - ");
             int quantity = GeneralUtil.getInstance().checkAndReturnValidInteger();
@@ -46,6 +47,7 @@ public class Canteen {
             System.out.println("Invalid Ticket Number");
             CanteenMain.showMain();
         }
+        Main.showMenu();
    }
 
    public Server selectServer(){

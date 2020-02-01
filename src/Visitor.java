@@ -29,7 +29,7 @@ public class Visitor {
 
     public void setWallet(int wallet) {
         this.wallet -= wallet;
-        System.out.println(this.name + " your new Wallet is - " + this.wallet);
+        System.out.println(this.name + " your new Wallet is - " + this.wallet+"\n");
     }
 
     public int getWallet() {
@@ -46,7 +46,7 @@ public class Visitor {
 
     public void setTime(int time){
         this.time = time+1;
-        System.out.println("--------- Time is - " + this.time);
+        System.out.println("Now "+this.name + " Time is - " + this.time);
     }
 
     public static Ride selectRide(ArrayList<Ride> rides){

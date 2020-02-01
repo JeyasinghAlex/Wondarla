@@ -8,9 +8,9 @@ public class OperatorTicketCounter {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(int amount, Operator operator) {
         this.amount += amount;
-        System.out.println("Your Earning is - "+this.getAmount());
+        System.out.println(operator.getHisGame() +" Total Earning is - "+this.getAmount());
     }
 }
 

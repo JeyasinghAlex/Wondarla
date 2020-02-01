@@ -51,6 +51,7 @@ public class ThemPark {
         selectedRide.startRide(Main.themPark.ticketCounter.visitorArrayList, selectedRide, operators);
         Main.showMenu();
     }
+
         public  void printVisitorDetails() {
             for (int i = 0; i < Main.themPark.ticketCounter.visitorArrayList.size(); i++) {
                 System.out.println(Main.themPark.ticketCounter.visitorArrayList.get(i).toString());
@@ -92,5 +93,9 @@ public class ThemPark {
         }
         System.out.println("--------------------------------------------------------");
         Main.showMenu();
+    }
+
+    public int getEntranceAmount() {
+        return entranceAmount;
     }
 }

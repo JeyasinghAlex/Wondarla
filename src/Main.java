@@ -46,6 +46,8 @@ public class Main {
                 themPark.checkWallet();
                 break;
             case 9:
+                System.out.println("Total amount is "+themPark.getEntranceAmount());
+                showMenu();;
                 break;
             default:
                 break;
