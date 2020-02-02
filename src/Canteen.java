@@ -3,7 +3,7 @@ public class Canteen {
 
    private ArrayList<Server> servers = new ArrayList<>();
    private ArrayList<Food> foods = new ArrayList<>();
-   private CanteenMoneyCollector moneyCollector = new CanteenMoneyCollector();
+   public CanteenMoneyCollector moneyCollector = new CanteenMoneyCollector();
 
     public void createFood(){
         foods.add(new Food("Briyani",  130,  20));

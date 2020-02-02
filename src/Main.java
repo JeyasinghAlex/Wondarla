@@ -17,6 +17,7 @@ public class Main {
         System.out.println("7) Print Game Earning Details");
         System.out.println("8) Chuck Visitor Wallet");
         System.out.println("9) Print total Earning of Entrance TicketCounter\n");
+        System.out.println("10) Print canteen earning");
         System.out.print("Enter your Option - ");
         int option = GeneralUtil.getInstance().checkAndReturnValidInteger();
         switch (option)
@@ -46,7 +47,11 @@ public class Main {
                 themPark.checkWallet();
                 break;
             case 9:
-                System.out.println("Total amount is "+themPark.ticketCounter.getEntranceAmount());
+                themPark.ticketCounter.getEntranceAmount();
+                showMenu();;
+                break;
+            case 10:
+                themPark.canteen.moneyCollector.getAmount();
                 showMenu();;
                 break;
             default:

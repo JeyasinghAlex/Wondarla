@@ -47,8 +47,8 @@ public class EntranceTicketCounter {
         this.amount += 30;
     }
 
-    public int getEntranceAmount(){
-        return this.amount;
+    public void getEntranceAmount(){
+        System.out.println(this.amount);
     }
 
 }
