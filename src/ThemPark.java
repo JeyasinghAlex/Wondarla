@@ -7,7 +7,6 @@ public class ThemPark {
     public  ArrayList<Ride> rides = new ArrayList<>();
     public   ArrayList<Operator> operators = new ArrayList<>();
    // public ArrayList<Visitor> visitorArrayList = new ArrayList<>();
-    public int entranceAmount;
 
         public void main(){
             System.out.println("--------------------------------------------------------");
@@ -62,9 +61,9 @@ public class ThemPark {
          public  void printGameEarningDetails() {
              for(int i = 0; i < operators.size(); i++){
                  System.out.println("--------------------"+operators.get(i).getHisGame()+ "-------------------------------");
-                 if(operators.get(i).getHisGame() != null)
+                 //if(operators.get(i).getHisGame() != null)
                  for(int j = 0; i < operators.get(i).ticketCounter.recordBooks.size();  j++){
-                     System.out.println(operators.get(i).ticketCounter.recordBooks.get(j));
+                     System.out.println(operators.get(i).ticketCounter.recordBooks.get(j).toString());
                  }
              }
              Main.showMenu();
@@ -72,7 +71,7 @@ public class ThemPark {
 
        public  void checkWallet(){
             for(int i = 0; i < Main.themPark.ticketCounter.visitorArrayList.size(); i++){
-                System.out.println(Main.themPark.ticketCounter.visitorArrayList.get(i).getTicket().getTicketNumber() + ") Available balance is - " +Main.themPark.ticketCounter.visitorArrayList.get(i).getWallet());
+                System.out.println("Ticket Number ("+Main.themPark.ticketCounter.visitorArrayList.get(i).getTicket().getTicketNumber() + ") Available balance is - " +Main.themPark.ticketCounter.visitorArrayList.get(i).getWallet());
             }
            Main.showMenu();
         }
@@ -95,7 +94,4 @@ public class ThemPark {
         Main.showMenu();
     }
 
-    public int getEntranceAmount() {
-        return entranceAmount;
-    }
 }

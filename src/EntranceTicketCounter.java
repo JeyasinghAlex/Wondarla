@@ -46,4 +46,9 @@ public class EntranceTicketCounter {
         visitorArrayList.get(visitorArrayList.size() - 1).setWallet(30);
         this.amount += 30;
     }
+
+    public int getEntranceAmount(){
+        return this.amount;
+    }
+
 }
