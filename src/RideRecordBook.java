@@ -1,8 +1,8 @@
-public class OperatorRecordBook {
+public class RideRecordBook {
    private int ticketNumber;
    private String name;
 
-    public OperatorRecordBook(int ticketNumber, String  name){
+    public RideRecordBook(int ticketNumber, String  name){
         this.ticketNumber = ticketNumber;
         this.name = name;
     }

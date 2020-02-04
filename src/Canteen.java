@@ -26,8 +26,12 @@ public class Canteen {
         CanteenMain.showMain();
    }
 
-   public void orderFood(Visitor visitor, Server server){
-        if(visitor != null){
+   public void orderFood(Server server){
+       System.out.print("Enter your Ticket Number - ");
+       int ticketNumber = GeneralUtil.getInstance().checkAndReturnValidInteger();
+       Visitor visitor = ThemPark.getThemParkInstance().ticketCounter.searchVisitors(ticketNumber);
+
+       if(visitor != null){
             System.out.print(" Which food you need ? - ");
             int food = GeneralUtil.getInstance().checkAndReturnValidInteger();
             System.out.print("Enter the number of Quantity - ");
@@ -41,7 +45,7 @@ public class Canteen {
             int price = foods.get(food-1).getPrice();
             if(visitor.getWallet() > (price * quantity)){
                 moneyCollector.setAmount((price * quantity), server);
-                visitor.setWallet(price * quantity);
+                visitor.requestMoney(price * quantity);
                 foods.get(food-1).setQuantity(quantity);
             }else{
                 System.out.println("Insufficient Balance");

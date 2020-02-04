@@ -14,7 +14,7 @@ public class Main {
         System.out.println("5) Canteen");
         System.out.println("6) Print Visitor Details");
         System.out.println("7) Print Game Earning Details");
-        System.out.println("8) Chuck Visitor Wallet");
+        System.out.println("8) Check Visitor Wallet");
         System.out.println("9) Print total Earning of Entrance TicketCounter\n");
         System.out.println("10) Print canteen earning");
         System.out.print("Enter your Option - ");
@@ -37,13 +37,13 @@ public class Main {
                 CanteenMain.showMain();
                 break;
             case 6:
-                ThemPark.getThemParkInstance().printVisitorDetails();
+                ThemPark.getThemParkInstance().ticketCounter.printVisitorDetails();
                 break;
             case 7:
                 ThemPark.getThemParkInstance().printGameEarningDetails();
                 break;
             case 8:
-                ThemPark.getThemParkInstance().checkWallet();
+                ThemPark.getThemParkInstance().ticketCounter.checkWallet();
                 break;
             case 9:
                 ThemPark.getThemParkInstance().ticketCounter.getEntranceAmount();

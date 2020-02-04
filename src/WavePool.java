@@ -1,7 +1,7 @@
 
-public class WavePool extends Ride {
+public class WavePool  {
     public WavePool(String rideName, int amount, int startTime, int endTime, boolean adult, boolean child, boolean senior) {
-        super(rideName, amount, startTime, endTime, adult, child, senior);
+       // super(rideName, amount, startTime, endTime, adult, child, senior);
     }
 
 }

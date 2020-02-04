@@ -9,9 +9,10 @@ public class Ride {
     protected boolean adult;
     protected boolean children;
     protected boolean senior;
-    Operator operator = null;
+    protected Operator operator;
+    protected TicketCounter ticketCounter;
 
-    public Ride(String rideName, int amount, int startTime, int endTime, boolean adult, boolean children, boolean senior) {
+    public Ride(String rideName, int amount, int startTime, int endTime, boolean adult, boolean children, boolean senior, TicketCounter ticketCounter, Operator operator) {
         this.rideName = rideName;
         this.amount = amount;
         this.startTime = startTime;
@@ -19,6 +20,8 @@ public class Ride {
         this.adult = adult;
         this.children = children;
         this.senior = senior;
+        this.ticketCounter = ticketCounter;
+        this.operator = operator;
     }
 
     public String getRideName(){
@@ -42,38 +45,31 @@ public class Ride {
             return this.senior;
     }
 
-    public Operator checkTicket(ArrayList<Operator> operators, Ride selectedRide){
-        for(int i = 0; i < operators.size(); i++){
-            if(selectedRide.getRideName().equals(operators.get(i).getHisGame())){
-             return   operator =  operators.get(i);
-            }
-        }
-       return operator;
-    }
 
-    public void startRide(ArrayList<Visitor> visitors, Ride selectedRide, ArrayList<Operator> operators){
-        boolean result = false;
-        Operator operator = checkTicket(operators, selectedRide);
-        System.out.print("Enter your Ticket Number - ");
-        int ticketNumber = GeneralUtil.getInstance().checkAndReturnValidInteger();
-        for(int i = 0; i < visitors.size(); i++){
-            int visitorTicket = visitors.get(i).getTicket().getTicketNumber();
-            int visitorTime = visitors.get(i).getTime();
-            int rideStartingTime = selectedRide.getStartTime();
-            String visitorCategory = visitors.get(i).getTicket().getCategory();
-            if(visitorTicket == ticketNumber && visitorTime <= rideStartingTime && selectedRide.getCategory(visitorCategory)){
-                visitors.get(i).setWallet(selectedRide.getAmount());
-                visitors.get(i).setTime(rideStartingTime);
-                operator.getTicketCounter().recordBooks.add(new OperatorRecordBook(ticketNumber, visitors.get(i).getName()));
-                operator.getTicketCounter().setAmount(selectedRide.getAmount(), operator);
-                System.out.println("---------------Successfully Ride Completed--------------------");
-                result = true;
-                break;
-            }
-        }
-        if(!result)
-            System.out.println("You are not eligible for the game....May be yours late or wrong ticket");
-    }
+//    public void startRide(Ride selectedRide){
+//        System.out.print("Enter your Ticket Number - ");
+//        int ticketNumber = GeneralUtil.getInstance().checkAndReturnValidInteger();
+//        Visitor visitor = ThemPark.getThemParkInstance().ticketCounter.searchVisitors(ticketNumber);
+//
+//        if(visitor != null){
+//            int visitorTime = visitor.getTime();
+//            String visitorCategory = visitor.getTicket().getCategory();
+//            int rideStartingTime = selectedRide.getStartTime();
+//
+//            if(visitorTime <= rideStartingTime && selectedRide.getCategory(visitorCategory)){
+//                int returnedMoney =visitor.requestMoney(selectedRide.getAmount());
+//                if(returnedMoney !=0){
+//                    selectedRide.ticketCounter.recordBooks.add(new RideRecordBook(ticketNumber, visitor.getName()));
+//                    selectedRide.ticketCounter.setAmount(returnedMoney, selectedRide);
+//                    System.out.println("---------------Successfully Ride Completed--------------------");
+//                    visitor.setTime(rideStartingTime);
+//                } else
+//                    System.out.println("--------------- Ride cancelled--------------------");
+//            }else
+//                System.out.println("You are not eligible for the game or May be yours late");
+//        }else
+//            System.out.println("Wrong Ticket Number");
+//    }
 
     @Override
     public String toString() {

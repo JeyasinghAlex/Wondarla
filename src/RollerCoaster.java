@@ -1,10 +1,10 @@
 
-public class RollerCoaster extends Ride {
+public class RollerCoaster  {
 
-        OperatorTicketCounter operatorTicketCounter;
+        TicketCounter operatorTicketCounter;
         public RollerCoaster(String rideName, int amount, int startTime, int endTime, boolean adult, boolean child, boolean senior) {
-        super(rideName, amount, startTime, endTime, adult, child, senior);
-        operatorTicketCounter = new OperatorTicketCounter();
+        //super(rideName, amount, startTime, endTime, adult, child, senior);
+        operatorTicketCounter = new TicketCounter();
     }
 
     public void getMoney(){

@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Visitor {
 
     private int wallet = 1000;
@@ -27,9 +25,22 @@ public class Visitor {
         return this.ticket;
     }
 
-    public void setWallet(int wallet) {
-        this.wallet -= wallet;
+    private void setWallet(int wallet) {
+        this.wallet = wallet;
         System.out.println(this.name + " your new Wallet is - " + this.wallet+"\n");
+    }
+
+
+    public int requestMoney(int amount){
+        /***/
+        System.out.println("Would you like to pay  "+amount+" ?");
+        System.out.println("1) yes\n2)No");
+        System.out.print("What is your wish ? - ");
+        if(GeneralUtil.getInstance().checkAndReturnValidInteger() == 1 && this.wallet >= amount){
+             setWallet(getWallet()-amount);
+             return amount;
+        }
+        return  0;
     }
 
     public int getWallet() {
@@ -69,16 +80,16 @@ public class Visitor {
                 '}';
     }
 
-    public static Visitor orderFood(){
-        Visitor visitor = null;
-        System.out.print("Enter your Ticket Number - ");
-        int ticket  = GeneralUtil.getInstance().checkAndReturnValidInteger();
-        int length = ThemPark.getThemParkInstance().ticketCounter.visitorArrayList.size();
-        for(int i = 0; i < length; i++){
-            if(ticket == ThemPark.getThemParkInstance().ticketCounter.visitorArrayList.get(i).ticket.getTicketNumber()){
-                return ThemPark.getThemParkInstance().ticketCounter.visitorArrayList.get(i);
-            }
-        }
-        return visitor;
-    }
+//    public static Visitor orderFood(){
+//        Visitor visitor = null;
+//        System.out.print("Enter your Ticket Number - ");
+//        int ticket  = GeneralUtil.getInstance().checkAndReturnValidInteger();
+//        int length = ThemPark.getThemParkInstance().ticketCounter.visitors.size();
+//        for(int i = 0; i < length; i++){
+//            if(ticket == ThemPark.getThemParkInstance().ticketCounter.visitors.get(i).ticket.getTicketNumber()){
+//                return ThemPark.getThemParkInstance().ticketCounter.visitors.get(i);
+//            }
+//        }
+//        return visitor;
+//    }
 }
