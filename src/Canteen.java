@@ -3,7 +3,7 @@ public class Canteen {
 
    private ArrayList<Server> servers = new ArrayList<>();
    private ArrayList<Food> foods = new ArrayList<>();
-   public CanteenMoneyCollector moneyCollector = new CanteenMoneyCollector();
+   private CanteenMoneyCollector moneyCollector = new CanteenMoneyCollector();
 
     public void createFood(){
         foods.add(new Food("Briyani",  130,  20));
@@ -12,6 +12,10 @@ public class Canteen {
         foods.add(new Food("Chicken Fry",  80,  10));
         foods.add(new Food("Parotta",  10,  50));
         createServer();
+    }
+
+    public CanteenMoneyCollector getInstance(){
+        return  moneyCollector;
     }
 
    public void showMenuCard(){
@@ -65,8 +69,8 @@ public class Canteen {
    }
 
    public void createServer(){
-       servers.add(new Server("Santhosh", 0));
-       servers.add(new Server("Ebbu", 0));
+       servers.add(new Server("alex", 0));
+       servers.add(new Server("sparrow", 0));
        servers.add(new Server("Luu", 0));
    }
 }

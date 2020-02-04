@@ -50,5 +50,4 @@ public class EntranceTicketCounter {
     public void getEntranceAmount(){
         System.out.println(this.amount);
     }
-
 }

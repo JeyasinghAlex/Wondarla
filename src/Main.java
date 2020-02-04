@@ -1,8 +1,7 @@
 public class Main {
 
-    static ThemPark themPark = new ThemPark();
     public  static void main(String[] arg){
-        themPark.main();
+        ThemPark.getThemParkInstance().main();
         showMenu();
     }
 
@@ -23,35 +22,35 @@ public class Main {
         switch (option)
         {
             case 1:
-                themPark.configurationGame();
+                ThemPark.getThemParkInstance().configurationGame();
                 break;
             case 2:
-                themPark.visitorRegistration();
+                ThemPark.getThemParkInstance().visitorRegistration();
                 break;
             case 3:
-                themPark.showAvailableRides();
+                ThemPark.getThemParkInstance().showAvailableRides();
                 break;
             case 4:
-                themPark.startRide();
+                ThemPark.getThemParkInstance().startRide();
                 break;
             case 5:
                 CanteenMain.showMain();
                 break;
             case 6:
-                themPark.printVisitorDetails();
+                ThemPark.getThemParkInstance().printVisitorDetails();
                 break;
             case 7:
-                themPark.printGameEarningDetails();
+                ThemPark.getThemParkInstance().printGameEarningDetails();
                 break;
             case 8:
-                themPark.checkWallet();
+                ThemPark.getThemParkInstance().checkWallet();
                 break;
             case 9:
-                themPark.ticketCounter.getEntranceAmount();
-                showMenu();;
+                ThemPark.getThemParkInstance().ticketCounter.getEntranceAmount();
+                showMenu();
                 break;
             case 10:
-                themPark.canteen.moneyCollector.getAmount();
+                ThemPark.getThemParkInstance().canteen.getInstance().getAmount();
                 showMenu();;
                 break;
             default:

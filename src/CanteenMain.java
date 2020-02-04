@@ -1,6 +1,5 @@
 public class CanteenMain {
 
-    static Canteen canteen = Main.themPark.canteen;
     public static void showMain(){
         System.out.println("1) Show Available Food");
         System.out.println("2) Order Food");
@@ -11,13 +10,13 @@ public class CanteenMain {
         switch(option)
         {
             case 1:
-                canteen.showMenuCard();
+                ThemPark.getThemParkInstance().canteen.showMenuCard();
                 break;
             case 2:
-                Server server = canteen.selectServer();
+                Server server = ThemPark.getThemParkInstance().canteen.selectServer();
                 System.out.println("Server  - " + server.getName() + " handle the Order");
                 Visitor visitor =  Visitor.orderFood();
-               canteen.orderFood(visitor, server);
+                ThemPark.getThemParkInstance().canteen.orderFood(visitor, server);
                 break;
             case 3:
                 Main.showMenu();

@@ -15,6 +15,7 @@ public class Ticket {
         this.date = date;
         this.time = time;
     }
+
     public int getTicketNumber(){
         return this.ticketNumber;
     }

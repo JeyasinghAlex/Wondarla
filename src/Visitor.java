@@ -49,15 +49,15 @@ public class Visitor {
         System.out.println("Now "+this.name + " Time is - " + this.time);
     }
 
-    public static Ride selectRide(ArrayList<Ride> rides){
-        System.out.print("Enter your Selection - ");
-        int selectedRide = GeneralUtil.getInstance().checkAndReturnValidInteger();
-        if(selectedRide <= rides.size())
-            System.out.println("Your Selected Ride is - "+rides.get(selectedRide-1).getRideName());
-        else
-            System.out.println("Invalid Selection");
-        return rides.get(selectedRide-1);
-    }
+//    public static Ride selectRide(ArrayList<Ride> rides){
+//        System.out.print("Enter your Selection - ");
+//        int selectedRide = GeneralUtil.getInstance().checkAndReturnValidInteger();
+//        if(selectedRide <= rides.size())
+//            System.out.println("Your Selected Ride is - "+rides.get(selectedRide-1).getRideName());
+//        else
+//            System.out.println("Invalid Selection");
+//        return rides.get(selectedRide-1);
+//    }
 
     @Override
     public String toString() {
@@ -73,10 +73,10 @@ public class Visitor {
         Visitor visitor = null;
         System.out.print("Enter your Ticket Number - ");
         int ticket  = GeneralUtil.getInstance().checkAndReturnValidInteger();
-        int length = Main.themPark.ticketCounter.visitorArrayList.size();
+        int length = ThemPark.getThemParkInstance().ticketCounter.visitorArrayList.size();
         for(int i = 0; i < length; i++){
-            if(ticket == Main.themPark.ticketCounter.visitorArrayList.get(i).ticket.getTicketNumber()){
-                return Main.themPark.ticketCounter.visitorArrayList.get(i);
+            if(ticket == ThemPark.getThemParkInstance().ticketCounter.visitorArrayList.get(i).ticket.getTicketNumber()){
+                return ThemPark.getThemParkInstance().ticketCounter.visitorArrayList.get(i);
             }
         }
         return visitor;

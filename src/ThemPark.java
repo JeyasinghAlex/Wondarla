@@ -7,6 +7,14 @@ public class ThemPark {
     public  ArrayList<Ride> rides = new ArrayList<>();
     public   ArrayList<Operator> operators = new ArrayList<>();
    // public ArrayList<Visitor> visitorArrayList = new ArrayList<>();
+       private static  ThemPark themPark = new ThemPark();
+        private ThemPark(){
+
+        }
+
+        public static ThemPark getThemParkInstance(){
+            return themPark;
+        }
 
         public void main(){
             System.out.println("--------------------------------------------------------");
@@ -44,16 +52,23 @@ public class ThemPark {
         for(int selectedRide = 0; selectedRide < rides.size(); selectedRide++){
             System.out.println(selectedRide+1+") "+rides.get(selectedRide).toString());
         }
+
         System.out.println("--------------------------------------------------------");
-        Ride selectedRide =  Visitor.selectRide(rides);
+        //Ride selectedRide =  Visitor.selectRide(rides);
         //((RollerCoaster) selectedRide).getMoney();
-        selectedRide.startRide(Main.themPark.ticketCounter.visitorArrayList, selectedRide, operators);
-        Main.showMenu();
+        System.out.print("Enter your Selection - ");
+        int selectedRide = GeneralUtil.getInstance().checkAndReturnValidInteger();
+        if(selectedRide <= rides.size()){
+            System.out.println("Your Selected Ride is - "+rides.get(selectedRide-1).getRideName());
+            rides.get(selectedRide-1).startRide(ticketCounter.visitorArrayList, rides.get(selectedRide-1), operators);
+        } else
+            System.out.println("Invalid Selection");
+            Main.showMenu();
     }
 
         public  void printVisitorDetails() {
-            for (int i = 0; i < Main.themPark.ticketCounter.visitorArrayList.size(); i++) {
-                System.out.println(Main.themPark.ticketCounter.visitorArrayList.get(i).toString());
+            for (int i = 0; i < themPark.ticketCounter.visitorArrayList.size(); i++) {
+                System.out.println(themPark.ticketCounter.visitorArrayList.get(i).toString());
             }
             Main.showMenu();
         }
@@ -62,16 +77,16 @@ public class ThemPark {
              for(int i = 0; i < operators.size(); i++){
                  System.out.println("--------------------"+operators.get(i).getHisGame()+ "-------------------------------");
                  //if(operators.get(i).getHisGame() != null)
-                 for(int j = 0; i < operators.get(i).ticketCounter.recordBooks.size();  j++){
-                     System.out.println(operators.get(i).ticketCounter.recordBooks.get(j).toString());
+                 for(int j = 0; i < operators.get(i).getTicketCounter().recordBooks.size();  j++){
+                     System.out.println(operators.get(i).getTicketCounter().recordBooks.get(j).toString());
                  }
              }
              Main.showMenu();
          }
 
        public  void checkWallet(){
-            for(int i = 0; i < Main.themPark.ticketCounter.visitorArrayList.size(); i++){
-                System.out.println("Ticket Number ("+Main.themPark.ticketCounter.visitorArrayList.get(i).getTicket().getTicketNumber() + ") Available balance is - " +Main.themPark.ticketCounter.visitorArrayList.get(i).getWallet());
+            for(int i = 0; i < themPark.ticketCounter.visitorArrayList.size(); i++){
+                System.out.println("Ticket Number ("+themPark.ticketCounter.visitorArrayList.get(i).getTicket().getTicketNumber() + ") Available balance is - " +themPark.ticketCounter.visitorArrayList.get(i).getWallet());
             }
            Main.showMenu();
         }
