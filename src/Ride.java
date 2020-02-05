@@ -32,6 +32,10 @@ public class Ride {
         return startTime;
     }
 
+    public int getEndTime() {
+        return endTime;
+    }
+
     public int getAmount() {
         return amount;
     }
@@ -45,31 +49,6 @@ public class Ride {
             return this.senior;
     }
 
-
-//    public void startRide(Ride selectedRide){
-//        System.out.print("Enter your Ticket Number - ");
-//        int ticketNumber = GeneralUtil.getInstance().checkAndReturnValidInteger();
-//        Visitor visitor = ThemPark.getThemParkInstance().ticketCounter.searchVisitors(ticketNumber);
-//
-//        if(visitor != null){
-//            int visitorTime = visitor.getTime();
-//            String visitorCategory = visitor.getTicket().getCategory();
-//            int rideStartingTime = selectedRide.getStartTime();
-//
-//            if(visitorTime <= rideStartingTime && selectedRide.getCategory(visitorCategory)){
-//                int returnedMoney =visitor.requestMoney(selectedRide.getAmount());
-//                if(returnedMoney !=0){
-//                    selectedRide.ticketCounter.recordBooks.add(new RideRecordBook(ticketNumber, visitor.getName()));
-//                    selectedRide.ticketCounter.setAmount(returnedMoney, selectedRide);
-//                    System.out.println("---------------Successfully Ride Completed--------------------");
-//                    visitor.setTime(rideStartingTime);
-//                } else
-//                    System.out.println("--------------- Ride cancelled--------------------");
-//            }else
-//                System.out.println("You are not eligible for the game or May be yours late");
-//        }else
-//            System.out.println("Wrong Ticket Number");
-//    }
 
     @Override
     public String toString() {

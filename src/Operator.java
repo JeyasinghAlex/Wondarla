@@ -34,10 +34,13 @@ public class Operator {
             float visitorTime = ticket.getTime();
             String visitorCategory = ticket.getCategory();
             int rideStartingTime = selectedRide.getStartTime();
-            int amount = selectedRide.getAmount();
-            if(visitorTime <= rideStartingTime && selectedRide.getCategory(visitorCategory)){
-                //int returnedMoney =visitor.requestMoney(selectedRide.getAmount());
-                int returnedMoney = Visitor.getVisitorInstance(visitor, amount);
+            int rideEndingTime = selectedRide.getEndTime();
+            int actualRideAmount = selectedRide.getAmount();
+            int premiumAmount = ticket.calculateMoney(actualRideAmount);
+            int totalAmount = actualRideAmount + premiumAmount;
+
+            if(visitorTime <= rideEndingTime && selectedRide.getCategory(visitorCategory)){
+                int returnedMoney = Visitor.getVisitorInstance(visitor, totalAmount);
                 if(returnedMoney !=0){
                     //selectedRide.ticketCounter.recordBooks.add(new RideRecordBook(ticketNumber, ticket.getHolder()));
                     selectedRide.ticketCounter.setAmount(returnedMoney, selectedRide);

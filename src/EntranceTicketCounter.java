@@ -59,6 +59,8 @@ public class EntranceTicketCounter {
         boolean result = GeneralUtil.getInstance().isAllowRide();
         if(result)
             giveTicket();
+        else
+            Main.showMenu();
     }
 
     public Visitor searchVisitors(int ticketNumber){

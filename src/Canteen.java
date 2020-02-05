@@ -18,20 +18,15 @@ public class Canteen {
         return  moneyCollector;
     }
 
-   public void showMenuCard(){
-        for (int i = 0; i < foods.size(); i++){
-            System.out.println(i+1+")"+ foods.get(i).toString());
-        }
-        System.out.println();
-        CanteenMain.showMain();
-   }
-
    public void orderFood(Server server){
        System.out.print("Enter your Ticket Number - ");
        int ticketNumber = GeneralUtil.getInstance().checkAndReturnValidInteger();
        Visitor visitor = ThemPark.getThemParkInstance().ticketCounter.searchVisitors(ticketNumber);
 
        if(visitor != null){
+           for (int i = 0; i < foods.size(); i++){
+               System.out.println(i+1+")"+ foods.get(i).toString());
+           }
             System.out.print(" Which food you need ? - ");
             int food = GeneralUtil.getInstance().checkAndReturnValidInteger();
             System.out.print("Enter the number of Quantity - ");

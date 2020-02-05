@@ -7,9 +7,9 @@ public class Ticket {
     protected String category;
     protected String type;
     protected LocalDate date;
-    protected float time;
+    protected float time = 10;
 
-    public Ticket(int ticketNumber, String category, String holder, String type, LocalDate date, int time) {
+    public Ticket(int ticketNumber, String category, String holder, String type, LocalDate date, float time) {
         this.ticketNumber = ticketNumber;
         this.category = category;
         this.holder = holder;
@@ -17,7 +17,9 @@ public class Ticket {
         this.date = date;
         this.time = time;
     }
+public Ticket(){
 
+}
     public int getTicketNumber() {
         return ticketNumber;
     }
