@@ -18,12 +18,4 @@ public class Premium extends Ticket {
     public void setTime(int time){
         this.time = (float) (time + 0.30);
     }
-
-    public static void main(String[] args) {
-       new Premium().show();
-    }
-
-    public void show(){
-        System.out.println(this.time);
-    }
 }

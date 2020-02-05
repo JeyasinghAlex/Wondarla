@@ -1,6 +1,7 @@
 public class Visitor {
 
     private int wallet = 1000;
+    private int password = 1000;
     private String name;
     private int age;
     private String gender;
@@ -11,8 +12,10 @@ public class Visitor {
         this.age = age;
         this.gender = gender;
         this.ticket = ticket;
+        this.password++;
         System.out.println("--------------------------------------------------------");
         System.out.println("Collect Your " + this.ticket.toString());
+        System.out.println("Your password is - "+ this.password);
         System.out.println("--------------------------------------------------------");
         System.out.println();
     }
@@ -21,8 +24,24 @@ public class Visitor {
         return this.ticket;
     }
 
-    private int sendMoney(int amount){
+   private boolean passwordValidation(){
+       System.out.print("Enter your password - ");
+       int password = GeneralUtil.getInstance().checkAndReturnValidInteger();
+        if(this.password == password){
+            System.out.println("--- Password is match ---");
+            return true;
+        }else{
+            System.out.println("--- Password is incorrect ---");
+            return  false;
+        }
+   }
 
+    private int getWallet(int amount){
+
+        if(!passwordValidation()){
+            System.out.println("Sorry....Try Again...");
+            Main.showMenu();
+        }
         System.out.println("Would you like to pay  "+amount+" ?");
         System.out.println("1) yes\n2)No");
         System.out.print("What is your wish ? - ");
@@ -35,7 +54,7 @@ public class Visitor {
     }
 
     public static int getVisitorInstance(Visitor visitor, int amount){
-        return visitor.sendMoney(amount);
+        return visitor.getWallet(amount);
     }
 
     @Override
