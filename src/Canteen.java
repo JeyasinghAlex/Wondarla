@@ -43,19 +43,14 @@ public class Canteen {
             }
 
             int price = foods.get(food-1).getPrice();
-            if(visitor.getWallet() > (price * quantity)){
-                moneyCollector.setAmount((price * quantity), server);
-                visitor.requestMoney(price * quantity);
-                foods.get(food-1).setQuantity(quantity);
+            int amount = Visitor.getVisitorInstance(visitor, (price * quantity));
+            moneyCollector.setAmount(amount, server);
+            foods.get(food-1).setQuantity(quantity);
+                //showMenuCard();
             }else{
-                System.out.println("Insufficient Balance");
-                showMenuCard();
-            }
-        }else{
-            System.out.println("Invalid Ticket Number");
-            CanteenMain.showMain();
-        }
-        Main.showMenu();
+           System.out.println("Wrong Ticket Number");
+       }
+       Main.showMenu();
    }
 
    public Server selectServer(){

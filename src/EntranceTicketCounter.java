@@ -7,7 +7,7 @@ public class EntranceTicketCounter {
     private int amount;
     private ArrayList<Visitor> visitors = new ArrayList<>();
 
-    public void receiveTicket() {
+    public void giveTicket() {
         System.out.print("Enter your Name - ");
         String name = GeneralUtil.getInstance().getString();
         System.out.print("Enter your Age - ");
@@ -25,39 +25,40 @@ public class EntranceTicketCounter {
         System.out.println("                - 2) Child");
         System.out.println("                - 3) Senior");
         System.out.print("Select your Category - ");
-        int cat = GeneralUtil.getInstance().checkAndReturnValidInteger();
+        int option = GeneralUtil.getInstance().checkAndReturnValidInteger();
+        String category = "";
+        if(option == 1){
+            category = "Adult";
+        }else if(option == 2)
+            category = "Child";
+        else
+            category = "Senior";
         LocalDate date = LocalDate.now();
-        //LocalTime time = LocalTime.now();
         System.out.print("What is the time Now  ? - ");
         int time = Integer.parseInt(GeneralUtil.getInstance().getString());
         System.out.println("Ticket Type  - 1) Premium");
         System.out.println("                        2) General");
         System.out.print("Select your Type - ");
+        int selected = GeneralUtil.getInstance().checkAndReturnValidInteger();
         String type = "";
-        if(GeneralUtil.getInstance().checkAndReturnValidInteger() == 1){
+        int entryFee = 30;
+        int fee = 0;
+        if(selected == 1){
             type = "Premium";
-            int amount = visitors.get(visitors.size() - 1).requestMoney(50);
-            this.amount += amount;
-        }
-        else{
+            Premium premiumTicket = new Premium(++ticketNumber, category, name, type, date, time);
+           fee = premiumTicket.calculateMoney(entryFee);
+            visitors.add(new Visitor(name, age, gender, premiumTicket));
+        } else{
             type = "General";
-            int amount = visitors.get(visitors.size() - 1).requestMoney(50);
-            this.amount += amount;
+            General generalTicket = new General(++ticketNumber, category, name, type, date, time);
+            visitors.add(new Visitor(name, age, gender, generalTicket));
         }
-
-        String category = "";
-        if (cat == 1){
-            category = "Adult";
-            visitors.add(new Visitor(name, age, gender, category, new Ticket(++ticketNumber, category, name, type,  date, time ), time));
-        }
-        else if (cat == 2){
-            category = "Child";
-            visitors.add(new Visitor(name, age, gender, category, new Ticket(++ticketNumber, category, name, type, date,  time), time));
-        }
-        else{
-            category = "Senior";
-            visitors.add(new Visitor(name, age, gender, category, new Ticket(++ticketNumber, category, name, type, date, time), time));
-        }
+        int receiveAmount = Visitor.getVisitorInstance(visitors.get(visitors.size()-1), (entryFee+fee));
+        this.amount += receiveAmount;
+        System.out.println("Would you like another visitor registration ?");
+        boolean result = GeneralUtil.getInstance().isAllowRide();
+        if(result)
+            giveTicket();
     }
 
     public Visitor searchVisitors(int ticketNumber){
@@ -67,25 +68,5 @@ public class EntranceTicketCounter {
                 }
         }
         return null;
-    }
-
-
-    public  void checkWallet(){
-        for(int i = 0; i < visitors.size(); i++){
-            System.out.println("Ticket Number ("+visitors.get(i).getTicket().getTicketNumber() + ") Available balance is - " +visitors.get(i).getWallet());
-        }
-        Main.showMenu();
-    }
-
-
-    public  void printVisitorDetails() {
-        for (int i = 0; i < visitors.size(); i++) {
-            System.out.println(visitors.get(i).toString());
-        }
-        Main.showMenu();
-    }
-
-    public void getEntranceAmount(){
-        System.out.println(this.amount);
     }
 }

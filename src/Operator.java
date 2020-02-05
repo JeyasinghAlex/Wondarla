@@ -1,18 +1,8 @@
 public class Operator {
 
     private String operatorName;
-    private String hisGame;
-
     public Operator(String operatorName) {
         this.operatorName = operatorName;
-    }
-
-    public String getOperatorName(){
-        return this.operatorName;
-    }
-
-    public String getHisGame(){
-        return this.hisGame;
     }
 
     public  Ride configuration(){
@@ -21,7 +11,6 @@ public class Operator {
         System.out.println();
         System.out.print("Enter the Game Name - ");
         String gameName = getString();
-        this.hisGame = gameName;
         System.out.print("Enter the Ride Amount - ");
         int rideAmount = GeneralUtil.getInstance().checkAndReturnValidInteger();
         System.out.print("Enter the Game Start Time - ");
@@ -31,47 +20,29 @@ public class Operator {
         boolean isAllowAdult = isAllowRide("Adult");
         boolean isAllowChildren = isAllowRide("Children");
         boolean isAllowSenior = isAllowRide("Senior");
-        System.out.println(this.operatorName+ " Operate "+ this.getHisGame());
+        System.out.println(this.operatorName+ " Operate "+ gameName);
         return  new Ride(gameName, rideAmount, Integer.parseInt(startTime), Integer.parseInt(endTime), isAllowAdult, isAllowChildren, isAllowSenior, new TicketCounter(), this);
     }
 
-//    private Ride newGameCreation(String gameName, int rideAmount, int startTime, int endTime, boolean isAllowAdult, boolean isAllowChildren, boolean isAllowSenior){
-//        if (gameName.equals("Roller Coaster"))
-//            return new RollerCoaster(gameName, rideAmount, startTime, endTime, isAllowAdult, isAllowChildren, isAllowSenior);
-//        else if (gameName.equals("Columbus"))
-//            return  new Columbus(gameName, rideAmount, startTime, endTime, isAllowAdult, isAllowChildren, isAllowSenior);
-//        else if (gameName.equals("Giant Wheel"))
-//            return new GiantWheel(gameName, rideAmount, startTime, endTime, isAllowAdult, isAllowChildren, isAllowSenior);
-//        else if (gameName.equals("Wave Pool"))
-//            return  new WavePool(gameName, rideAmount, startTime, endTime, isAllowAdult, isAllowChildren, isAllowSenior);
-//        else if (gameName.equals("Rain Dancing"))
-//            return new RainDancing(gameName, rideAmount, startTime, endTime, isAllowAdult, isAllowChildren, isAllowSenior);
-//        else if (gameName.equals("Water Pendulum"))
-//            return new WaterPendulum(gameName, rideAmount, startTime, endTime, isAllowAdult, isAllowChildren, isAllowSenior);
-//        else{
-//            //System.out.println("This Game is Not Available");
-//            return new Ride(gameName, rideAmount, startTime, endTime, isAllowAdult, isAllowChildren, isAllowSenior);
-//        }
-//    }
-
-
-    public void startRide(Ride selectedRide){
+    public void operateRide(Ride selectedRide){
         System.out.print("Enter your Ticket Number - ");
         int ticketNumber = GeneralUtil.getInstance().checkAndReturnValidInteger();
         Visitor visitor = ThemPark.getThemParkInstance().ticketCounter.searchVisitors(ticketNumber);
 
         if(visitor != null){
-            int visitorTime = visitor.getTime();
-            String visitorCategory = visitor.getTicket().getCategory();
+            Ticket ticket = visitor.getTicket();
+            float visitorTime = ticket.getTime();
+            String visitorCategory = ticket.getCategory();
             int rideStartingTime = selectedRide.getStartTime();
-
+            int amount = selectedRide.getAmount();
             if(visitorTime <= rideStartingTime && selectedRide.getCategory(visitorCategory)){
-                int returnedMoney =visitor.requestMoney(selectedRide.getAmount());
+                //int returnedMoney =visitor.requestMoney(selectedRide.getAmount());
+                int returnedMoney = Visitor.getVisitorInstance(visitor, amount);
                 if(returnedMoney !=0){
-                    selectedRide.ticketCounter.recordBooks.add(new RideRecordBook(ticketNumber, visitor.getName()));
+                    //selectedRide.ticketCounter.recordBooks.add(new RideRecordBook(ticketNumber, ticket.getHolder()));
                     selectedRide.ticketCounter.setAmount(returnedMoney, selectedRide);
                     System.out.println("---------------Successfully Ride Completed--------------------");
-                    visitor.setTime(rideStartingTime);
+                    ticket.setTime(rideStartingTime);
                 } else
                     System.out.println("--------------- Ride cancelled--------------------");
             }else

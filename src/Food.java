@@ -10,23 +10,11 @@ public class Food {
         this.quantity = quantity;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
     public void setQuantity(int quantity) {
         this.quantity  -= quantity;
     }
     public void importQuantity(int quantity){
         this.quantity += quantity;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public int getPrice() {
@@ -37,11 +25,4 @@ public class Food {
         return quantity;
     }
 
-    @Override
-    public String toString() {
-        return "Food{" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                '}';
-    }
 }

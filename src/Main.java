@@ -25,33 +25,33 @@ public class Main {
                 ThemPark.getThemParkInstance().configurationGame();
                 break;
             case 2:
-                ThemPark.getThemParkInstance().visitorRegistration();
+                ThemPark.getThemParkInstance().ticketCounter.giveTicket();
                 break;
             case 3:
-                ThemPark.getThemParkInstance().showAvailableRides();
+                //ThemPark.getThemParkInstance().showAvailableRides();
                 break;
             case 4:
-                ThemPark.getThemParkInstance().startRide();
+                ThemPark.getThemParkInstance().showAvailableRides();
                 break;
             case 5:
-                CanteenMain.showMain();
+               // CanteenMain.showMain();
                 break;
             case 6:
-                ThemPark.getThemParkInstance().ticketCounter.printVisitorDetails();
+               // ThemPark.getThemParkInstance().ticketCounter.printVisitorDetails();
                 break;
             case 7:
-                ThemPark.getThemParkInstance().printGameEarningDetails();
+               // ThemPark.getThemParkInstance().printGameEarningDetails();
                 break;
             case 8:
-                ThemPark.getThemParkInstance().ticketCounter.checkWallet();
+              //  ThemPark.getThemParkInstance().ticketCounter.checkWallet();
                 break;
             case 9:
-                ThemPark.getThemParkInstance().ticketCounter.getEntranceAmount();
+                //ThemPark.getThemParkInstance().ticketCounter.getEntranceAmount();
                 showMenu();
                 break;
             case 10:
                 ThemPark.getThemParkInstance().canteen.getInstance().getAmount();
-                showMenu();;
+                showMenu();
                 break;
             default:
                 break;

@@ -38,8 +38,7 @@ public class GeneralUtil {
         return scan.nextInt();
     }
 
-    public boolean isAllowRide(String category){
-        System.out.println("Can "+category+" allowed the Ride ?");
+    public boolean isAllowRide(){
         System.out.println("------------------------>  1)  Yes");
         System.out.println("------------------------>  2)  No");
         System.out.print("Enter the Option  - ");
