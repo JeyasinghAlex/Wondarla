@@ -1,6 +1,6 @@
 
 
-public class Ride {
+public class Ride implements RollerCoaster, WavePool, GiantWheel, RainDancing{
 
     protected String rideName;
     protected int amount;

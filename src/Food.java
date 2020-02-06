@@ -1,4 +1,4 @@
-public class Food {
+public class Food implements Briyani{
 
     private String name;
     private int price;
