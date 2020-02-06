@@ -2,6 +2,8 @@ public class Main {
 
     public  static void main(String[] arg){
         ThemPark.getThemParkInstance().main();
+//        System.out.println("1) Operator");
+//        System.out.println("2) Visitor");
         showMenu();
     }
 
@@ -50,7 +52,7 @@ public class Main {
                 showMenu();
                 break;
             case 10:
-                ThemPark.getThemParkInstance().canteen.getInstance().getAmount();
+               // ThemPark.getThemParkInstance().canteen.getInstance().getAmount();
                 showMenu();
                 break;
             default:

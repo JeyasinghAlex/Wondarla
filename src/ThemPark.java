@@ -23,7 +23,6 @@ public class ThemPark {
             canteen.createFood();
         }
 
-
     public  void configurationGame(){
         boolean result;
         int getOperator = 0;

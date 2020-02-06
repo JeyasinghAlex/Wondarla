@@ -4,7 +4,6 @@ import java.util.ArrayList;
 public class EntranceTicketCounter {
 
     private  static int ticketNumber = 100;
-    private static int password = 1000;
     private int amount;
     private ArrayList<Visitor> visitors = new ArrayList<>();
 

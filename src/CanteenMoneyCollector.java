@@ -7,10 +7,10 @@ public class CanteenMoneyCollector {
         System.out.println("Canteen kalla is - " + this.amount);
     }
 
-    public void importCharge(int amount){
-        this.amount -= amount;
-        System.out.println("Canteen kalla is - " + this.amount);
-    }
+//    public void importCharge(int amount){
+//        this.amount -= amount;
+//        System.out.println("Canteen kalla is - " + this.amount);
+//    }
 
     public void getAmount() {
         System.out.println(this.amount);
