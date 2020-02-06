@@ -1,9 +1,7 @@
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GeneralUtil {
-
     private static Scanner scan = new Scanner(System.in);
     private static GeneralUtil generalUtil = new GeneralUtil();
     private GeneralUtil() {
@@ -15,13 +13,15 @@ public class GeneralUtil {
     }
 
     public  String getString(){
-        return scan.nextLine();
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
     }
 
     public int checkAndReturnValidInteger() {
 
         try {
-               return Integer.parseInt(scan.nextLine());
+               //return Integer.parseInt(scan.nextLine());
+            return scan.nextInt();
         } catch (InputMismatchException ex){
             System.out.println("Type Of Exception is -" + ex);
             System.out.println("Plzz Enter Valid Input");

@@ -1,7 +1,8 @@
 public class Visitor {
 
+    private static int number = 1000;
     private int wallet = 1000;
-    private int password = 1000;
+    private  int password;
     private String name;
     private int age;
     private String gender;
@@ -12,9 +13,9 @@ public class Visitor {
         this.age = age;
         this.gender = gender;
         this.ticket = ticket;
-        this.password++;
+        this.password = ++number;
         System.out.println("--------------------------------------------------------");
-        System.out.println("Collect Your " + this.ticket.toString());
+      //  System.out.println("Collect Your " + this.ticket.toString());
         System.out.println("Your password is - "+ this.password);
         System.out.println("--------------------------------------------------------");
         System.out.println();
@@ -38,14 +39,11 @@ public class Visitor {
 
     private int getWallet(int amount){
 
-        if(!passwordValidation()){
-            System.out.println("Sorry....Try Again...");
-            Main.showMenu();
-        }
         System.out.println("Would you like to pay  "+amount+" ?");
         System.out.println("1) yes\n2)No");
         System.out.print("What is your wish ? - ");
-        if(GeneralUtil.getInstance().checkAndReturnValidInteger() == 1 && this.wallet >= amount){
+        if(GeneralUtil.getInstance().checkAndReturnValidInteger() == 1)
+        if(passwordValidation() && this.wallet >= amount){
              this.wallet = this.wallet-amount;
             System.out.println(this.name + " your new Wallet is - " + this.wallet+"\n");
              return amount;

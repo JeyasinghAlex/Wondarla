@@ -41,10 +41,14 @@ public Ticket(){
     }
 
     public int calculateMoney(int amount){
-        return amount;
+        return 0;
     }
+
     public void setTime(int time) {
-        this.time = time+1;
+        if(time > this.time)
+            this.time = time+1;
+        else
+            this.time += 1;
         System.out.println("Now "+this.holder + " Time is - " + this.time);
     }
 

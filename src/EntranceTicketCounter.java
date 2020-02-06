@@ -8,7 +8,7 @@ public class EntranceTicketCounter {
     private ArrayList<Visitor> visitors = new ArrayList<>();
 
     public void giveTicket() {
-        System.out.print("Enter your Name - ");
+        System.out.print("\nEnter your Name - ");
         String name = GeneralUtil.getInstance().getString();
         System.out.print("Enter your Age - ");
         int age = GeneralUtil.getInstance().checkAndReturnValidInteger();
@@ -21,9 +21,9 @@ public class EntranceTicketCounter {
             gender = "Male";
         else
             gender = "Female";
-        System.out.println("Category  - 1) Adult");
-        System.out.println("                - 2) Child");
-        System.out.println("                - 3) Senior");
+        System.out.println("Category  - 1) Adult (18 to 30)");
+        System.out.println("                - 2) Child (6 to 17)");
+        System.out.println("                - 3) Senior (above > 31)");
         System.out.print("Select your Category - ");
         int option = GeneralUtil.getInstance().checkAndReturnValidInteger();
         String category = "";
@@ -43,24 +43,33 @@ public class EntranceTicketCounter {
         String type = "";
         int entryFee = 30;
         int fee = 0;
+        Visitor visitor = null;
         if(selected == 1){
             type = "Premium";
             Premium premiumTicket = new Premium(++ticketNumber, category, name, type, date, time);
            fee = premiumTicket.calculateMoney(entryFee);
-            visitors.add(new Visitor(name, age, gender, premiumTicket));
+            visitor = new Visitor(name, age, gender, premiumTicket);
+            entryFee = Visitor.getVisitorInstance(visitor, (entryFee+fee));
+            if(entryFee != 0)
+            visitors.add(visitor);
         } else{
             type = "General";
             General generalTicket = new General(++ticketNumber, category, name, type, date, time);
-            visitors.add(new Visitor(name, age, gender, generalTicket));
+             fee = generalTicket.calculateMoney(entryFee);
+             visitor = new Visitor(name, age, gender, generalTicket);
+            entryFee = Visitor.getVisitorInstance(visitor, (entryFee + fee));
+            if(entryFee != 0)
+            visitors.add(visitor);
         }
-        int receiveAmount = Visitor.getVisitorInstance(visitors.get(visitors.size()-1), (entryFee+fee));
-        this.amount += receiveAmount;
+        System.out.println("----------------------------------------------------------------------------------------------------------------");
+        if(entryFee != 0)
+        System.out.println("Collect your  -  "+visitor.getTicket().toString());
+        System.out.println("----------------------------------------------------------------------------------------------------------------\n");
+          this.amount += entryFee;
         System.out.println("Would you like another visitor registration ?");
         boolean result = GeneralUtil.getInstance().isAllowRide();
         if(result)
             giveTicket();
-        else
-            Main.showMenu();
     }
 
     public Visitor searchVisitors(int ticketNumber){
@@ -71,4 +80,19 @@ public class EntranceTicketCounter {
         }
         return null;
     }
+
+    public void showVisitorsDetails(){
+        System.out.println("----------------------------------------------------------------------------------------------------------------");
+        for (int i = 0; i < visitors.size(); i++){
+            System.out.println(visitors.get(i).toString());
+        }
+        System.out.println("----------------------------------------------------------------------------------------------------------------");
+    }
+
+    public void getAmount() {
+        System.out.println("----------------------------------------------------------------------------------------------------------------");
+        System.out.println("Total Earning of - Endurance Ticket Counter - "+amount);
+        System.out.println("----------------------------------------------------------------------------------------------------------------");
+    }
 }
+

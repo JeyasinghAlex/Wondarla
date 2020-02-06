@@ -25,4 +25,11 @@ public class Food implements Briyani{
         return quantity;
     }
 
+    @Override
+    public String toString() {
+        return "Food{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

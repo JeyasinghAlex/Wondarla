@@ -5,10 +5,8 @@ public class Operator {
         this.operatorName = operatorName;
     }
 
-    public  Ride configuration(){
-        System.out.println();
-        System.out.println("------------------------------Game Configuration------------------------------");
-        System.out.println();
+    public Ride configuration(){
+        System.out.println("\n------------------------------Game Configuration------------------------------\n");
         System.out.print("Enter the Game Name - ");
         String gameName = getString();
         System.out.print("Enter the Ride Amount - ");
@@ -28,7 +26,6 @@ public class Operator {
         System.out.print("Enter your Ticket Number - ");
         int ticketNumber = GeneralUtil.getInstance().checkAndReturnValidInteger();
         Visitor visitor = ThemPark.getThemParkInstance().getTicketCounterInstance().searchVisitors(ticketNumber);
-
         if(visitor != null){
             Ticket ticket = visitor.getTicket();
             float visitorTime = ticket.getTime();
@@ -38,16 +35,15 @@ public class Operator {
             int actualRideAmount = selectedRide.getAmount();
             int premiumAmount = ticket.calculateMoney(actualRideAmount);
             int totalAmount = actualRideAmount + premiumAmount;
-
-            if(visitorTime <= rideEndingTime && selectedRide.getCategory(visitorCategory)){
+            if(visitorTime < rideEndingTime && selectedRide.getCategory(visitorCategory)){
                 int returnedMoney = Visitor.getVisitorInstance(visitor, totalAmount);
                 if(returnedMoney !=0){
-                    //selectedRide.ticketCounter.recordBooks.add(new RideRecordBook(ticketNumber, ticket.getHolder()));
-                    selectedRide.ticketCounter.setAmount(returnedMoney, selectedRide);
+                    // selectedRide.ticketCounter.recordBooks.add(new RideRecordBook(ticketNumber, ticket.getHolder()));
+                    selectedRide.getTicketCounterInstance().setAmount(returnedMoney, selectedRide);
                     System.out.println("---------------Successfully Ride Completed--------------------");
-                    ticket.setTime(rideStartingTime);
+                        ticket.setTime(rideStartingTime);
                 } else
-                    System.out.println("--------------- Ride cancelled--------------------");
+                    System.out.println("--------------- Ride cancelled (Due to insufficient balance for this ride)--------------------");
             }else
                 System.out.println("You are not eligible for the game or May be yours late");
         }else

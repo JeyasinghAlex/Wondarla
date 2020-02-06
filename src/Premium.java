@@ -6,16 +6,15 @@ public class Premium extends Ticket {
         super(ticketNumber, category, holder, type, date, time);
     }
 
-    public Premium(){
-        super();
-
-    }
-
     public int calculateMoney(int amount){
        return (amount/2);
     }
 
     public void setTime(int time){
-        this.time = (float) (time + 0.30);
+        if(time > this.time)
+            this.time = (float) (time + 0.50);
+        else
+            this.time += 0.50;
+        System.out.println("Now "+this.holder + " Time is - " + this.time);
     }
 }

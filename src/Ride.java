@@ -40,6 +40,10 @@ public class Ride implements RollerCoaster, WavePool, GiantWheel, RainDancing{
         return amount;
     }
 
+    public TicketCounter getTicketCounterInstance() {
+        return ticketCounter;
+    }
+
     public boolean getCategory(String category){
         if(category .equals("Adult"))
             return this.adult;

@@ -21,7 +21,7 @@ public class Canteen {
    public void orderFood(Server server){
        System.out.print("Enter your Ticket Number - ");
        int ticketNumber = GeneralUtil.getInstance().checkAndReturnValidInteger();
-       Visitor visitor = ThemPark.getThemParkInstance().ticketCounter.searchVisitors(ticketNumber);
+       Visitor visitor = ThemPark.getThemParkInstance().getTicketCounterInstance().searchVisitors(ticketNumber);
 
        if(visitor != null){
            for (int i = 0; i < foods.size(); i++){
@@ -39,13 +39,14 @@ public class Canteen {
 
             int price = foods.get(food-1).getPrice();
             int amount = Visitor.getVisitorInstance(visitor, (price * quantity));
-            moneyCollector.setAmount(amount, server);
-
+            if(amount != 0)
+                moneyCollector.setAmount(amount, server);
+            else
+                System.out.println("Order cancelled due to Insufficient balance");
            // foods.get(food-1).setQuantity(quantity);
             }else{
            System.out.println("Wrong Ticket Number");
        }
-       Main.showUserOption();
    }
 
    public Server selectServer(){

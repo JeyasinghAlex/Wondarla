@@ -8,9 +8,12 @@ public class TicketCounter {
         return amount;
     }
 
+    public ArrayList<RideRecordBook> getRecordBooks() {
+        return recordBooks;
+    }
+
     public void setAmount(int amount, Ride selectedGame) {
         this.amount += amount;
         System.out.println(selectedGame.getRideName() +" Total Earning is - "+this.getAmount());
     }
 }
-

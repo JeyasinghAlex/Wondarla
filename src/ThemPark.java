@@ -40,7 +40,6 @@ public class ThemPark {
             System.out.println("Would you like another game configuration ?");
             result = GeneralUtil.getInstance().isAllowRide();
         }while (result);
-        Main.showUserOption();
     }
 
     public  void showAvailableRides(){
@@ -57,7 +56,6 @@ public class ThemPark {
             rides.get(selectedRide-1).operator.operateRide(rides.get(selectedRide-1));
         } else
             System.out.println("Invalid Selection");
-            Main.showUserOption();
     }
 
     private  void createOperator() {
