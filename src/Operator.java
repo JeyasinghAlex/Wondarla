@@ -27,7 +27,7 @@ public class Operator {
     public void operateRide(Ride selectedRide){
         System.out.print("Enter your Ticket Number - ");
         int ticketNumber = GeneralUtil.getInstance().checkAndReturnValidInteger();
-        Visitor visitor = ThemPark.getThemParkInstance().ticketCounter.searchVisitors(ticketNumber);
+        Visitor visitor = ThemPark.getThemParkInstance().getTicketCounterInstance().searchVisitors(ticketNumber);
 
         if(visitor != null){
             Ticket ticket = visitor.getTicket();

@@ -2,23 +2,31 @@ public class Main {
 
     public  static void main(String[] arg){
         ThemPark.getThemParkInstance().main();
-//        System.out.println("1) Operator");
-//        System.out.println("2) Visitor");
-        showMenu();
+        showUserOption();
     }
 
-    public static void showMenu(){
-        System.out.println("\n");
+    public static void showUserOption(){
+        System.out.println("1) Employee");
+        System.out.println("2) Visitor");
+        System.out.println("OtherWise Exit");
+        System.out.print("Enter your Option - ");
+        int option = GeneralUtil.getInstance().checkAndReturnValidInteger();
+        if(option == 1)
+            showEmployeeOptions();
+        else if (option == 2)
+            showVisitorOptions();
+        else{
+            System.out.println("Program will be exited----");
+            System.exit(0);
+        }
+    }
+
+    public static void showEmployeeOptions(){
         System.out.println("1) Configuration of Game");
-        System.out.println("2) Visitor Registration");
-        System.out.println("3) Show Available Rides");
-        System.out.println("4) Start Ride");
-        System.out.println("5) Canteen");
-        System.out.println("6) Print Visitor Details");
-        System.out.println("7) Print Game Earning Details");
-        System.out.println("8) Check Visitor Wallet");
-        System.out.println("9) Print total Earning of Entrance TicketCounter\n");
-        System.out.println("10) Print canteen earning");
+        System.out.println("2) Print Visitor Details");
+        System.out.println("3) Print Game Earning Details");
+        System.out.println("4) Print total Earning of Entrance TicketCounter\n");
+        System.out.println("5) Print canteen earning");
         System.out.print("Enter your Option - ");
         int option = GeneralUtil.getInstance().checkAndReturnValidInteger();
         switch (option)
@@ -27,33 +35,44 @@ public class Main {
                 ThemPark.getThemParkInstance().configurationGame();
                 break;
             case 2:
-                ThemPark.getThemParkInstance().ticketCounter.giveTicket();
+                //ThemPark.getThemParkInstance()
                 break;
             case 3:
-                //ThemPark.getThemParkInstance().showAvailableRides();
+                //  ThemPark.getThemParkInstance().canteen.
                 break;
             case 4:
-                ThemPark.getThemParkInstance().showAvailableRides();
+                //
                 break;
             case 5:
-               // CanteenMain.showMain();
+                ThemPark.getThemParkInstance().getCanteenInstance().getCanteenMoneyCollector().getAmount();
                 break;
-            case 6:
-               // ThemPark.getThemParkInstance().ticketCounter.printVisitorDetails();
+            default:
                 break;
-            case 7:
-               // ThemPark.getThemParkInstance().printGameEarningDetails();
+        }
+    }
+
+    public static void showVisitorOptions(){
+        System.out.println("1) Visitor Registration");
+        System.out.println("2) Go Ride");
+        System.out.println("3)Order Food");
+        System.out.println("4) Check Visitor Wallet");
+        System.out.print("Enter your Option - ");
+        int option = GeneralUtil.getInstance().checkAndReturnValidInteger();
+        switch (option)
+        {
+            case 1:
+                ThemPark.getThemParkInstance().getTicketCounterInstance().giveTicket();
                 break;
-            case 8:
-              //  ThemPark.getThemParkInstance().ticketCounter.checkWallet();
+            case 2:
+                ThemPark.getThemParkInstance().showAvailableRides();
                 break;
-            case 9:
-                //ThemPark.getThemParkInstance().ticketCounter.getEntranceAmount();
-                showMenu();
+            case 3:
+                Server server = ThemPark.getThemParkInstance().getCanteenInstance().selectServer();
+                System.out.println("Server  - " + server.getName() + " handle the Order");
+                ThemPark.getThemParkInstance().getCanteenInstance().orderFood(server);
                 break;
-            case 10:
-               // ThemPark.getThemParkInstance().canteen.getInstance().getAmount();
-                showMenu();
+            case 4:
+                //
                 break;
             default:
                 break;

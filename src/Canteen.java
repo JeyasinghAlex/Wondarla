@@ -14,7 +14,7 @@ public class Canteen {
         createServer();
     }
 
-    public CanteenMoneyCollector getInstance(){
+    public CanteenMoneyCollector getCanteenMoneyCollector(){
         return  moneyCollector;
     }
 
@@ -45,7 +45,7 @@ public class Canteen {
             }else{
            System.out.println("Wrong Ticket Number");
        }
-       Main.showMenu();
+       Main.showUserOption();
    }
 
    public Server selectServer(){

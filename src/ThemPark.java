@@ -2,11 +2,11 @@ import java.util.ArrayList;
 
 public class ThemPark {
 
-    public  EntranceTicketCounter ticketCounter = new EntranceTicketCounter();
-    public  Canteen canteen = new Canteen();
-    public  ArrayList<Ride> rides = new ArrayList<>();
-    public   ArrayList<Operator> operators = new ArrayList<>();
-       private static  ThemPark themPark = new ThemPark();
+    private EntranceTicketCounter ticketCounter = new EntranceTicketCounter();
+    private Canteen canteen = new Canteen();
+    private ArrayList<Ride> rides = new ArrayList<>();
+    private   ArrayList<Operator> operators = new ArrayList<>();
+    private static  ThemPark themPark = new ThemPark();
         private ThemPark(){
 
         }
@@ -15,7 +15,15 @@ public class ThemPark {
             return themPark;
         }
 
-        public void main(){
+    public EntranceTicketCounter getTicketCounterInstance() {
+        return ticketCounter;
+    }
+
+    public Canteen getCanteenInstance() {
+        return canteen;
+    }
+
+    public void main(){
             System.out.println("--------------------------------------------------------");
             System.out.println("|                    Welcome to Theme Park                 |");
             System.out.println("--------------------------------------------------------");
@@ -32,7 +40,7 @@ public class ThemPark {
             System.out.println("Would you like another game configuration ?");
             result = GeneralUtil.getInstance().isAllowRide();
         }while (result);
-        Main.showMenu();
+        Main.showUserOption();
     }
 
     public  void showAvailableRides(){
@@ -49,7 +57,7 @@ public class ThemPark {
             rides.get(selectedRide-1).operator.operateRide(rides.get(selectedRide-1));
         } else
             System.out.println("Invalid Selection");
-            Main.showMenu();
+            Main.showUserOption();
     }
 
     private  void createOperator() {

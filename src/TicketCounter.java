@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class TicketCounter {
     private int amount;
-    public  ArrayList<RideRecordBook> recordBooks = new ArrayList<>();
+    private ArrayList<RideRecordBook> recordBooks = new ArrayList<>();
 
     public int getAmount() {
         return amount;
