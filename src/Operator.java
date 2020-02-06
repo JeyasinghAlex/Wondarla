@@ -43,7 +43,7 @@ public class Operator {
                     System.out.println("---------------Successfully Ride Completed--------------------");
                         ticket.setTime(rideStartingTime);
                 } else
-                    System.out.println("--------------- Ride cancelled (Due to insufficient balance for this ride)--------------------");
+                    System.out.println("--------------- Ride cancelled--------------------");
             }else
                 System.out.println("You are not eligible for the game or May be yours late");
         }else

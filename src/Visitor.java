@@ -48,6 +48,7 @@ public class Visitor {
             System.out.println(this.name + " your new Wallet is - " + this.wallet+"\n");
              return amount;
         }
+        System.out.println("Insufficient balance Ride/Order Cancelled");
         return  0;
     }
 
