@@ -1,4 +1,4 @@
-public class Ride implements RollerCoaster, WavePool, GiantWheel, RainDancing{
+public  class Ride {
 
     protected String rideName;
     protected int amount;
@@ -9,6 +9,10 @@ public class Ride implements RollerCoaster, WavePool, GiantWheel, RainDancing{
     protected boolean senior;
     protected Operator operator;
     protected TicketCounter ticketCounter;
+
+    public Ride(){
+
+    }
 
     public Ride(String rideName, int amount, int startTime, int endTime, boolean adult, boolean children, boolean senior, TicketCounter ticketCounter, Operator operator) {
         this.rideName = rideName;

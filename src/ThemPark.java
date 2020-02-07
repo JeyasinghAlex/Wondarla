@@ -5,6 +5,7 @@ public class ThemPark {
     private EntranceTicketCounter ticketCounter = new EntranceTicketCounter();
     private Canteen canteen = new Canteen();
     private ArrayList<Ride> rides = new ArrayList<>();
+
     private   ArrayList<Operator> operators = new ArrayList<>();
     private static  ThemPark themPark = new ThemPark();
         private ThemPark(){

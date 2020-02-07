@@ -10,8 +10,6 @@ public class EntranceTicketCounter {
     public void giveTicket() {
         System.out.print("\nEnter your Name - ");
         String name = GeneralUtil.getInstance().getString();
-        System.out.print("Enter your Age - ");
-        int age = GeneralUtil.getInstance().checkAndReturnValidInteger();
         System.out.println("Gender - 1) Male");
         System.out.println("            - 2) Female");
         System.out.print("Select your Gender - ");
@@ -31,8 +29,9 @@ public class EntranceTicketCounter {
             category = "Adult";
         }else if(option == 2)
             category = "Child";
-        else
+        else {
             category = "Senior";
+        }
         LocalDate date = LocalDate.now();
         System.out.print("What is the time Now  ? - ");
         int time = Integer.parseInt(GeneralUtil.getInstance().getString());
@@ -48,7 +47,7 @@ public class EntranceTicketCounter {
             type = "Premium";
             Premium premiumTicket = new Premium(++ticketNumber, category, name, type, date, time);
            fee = premiumTicket.calculateMoney(entryFee);
-            visitor = new Visitor(name, age, gender, premiumTicket);
+            visitor = new Visitor(name, gender, premiumTicket);
             entryFee = Visitor.getVisitorInstance(visitor, (entryFee+fee));
             if(entryFee != 0)
             visitors.add(visitor);
@@ -56,7 +55,7 @@ public class EntranceTicketCounter {
             type = "General";
             General generalTicket = new General(++ticketNumber, category, name, type, date, time);
              fee = generalTicket.calculateMoney(entryFee);
-             visitor = new Visitor(name, age, gender, generalTicket);
+             visitor = new Visitor(name, gender, generalTicket);
             entryFee = Visitor.getVisitorInstance(visitor, (entryFee + fee));
             if(entryFee != 0)
             visitors.add(visitor);

@@ -1,7 +1,4 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DataBaseConnection {
 
@@ -15,21 +12,24 @@ public class DataBaseConnection {
         return dataBaseConnection;
     }
 
-    public  Connection getConnection( ) {
-        if(connection != null)
-        try {
-            String url = "jdbc:mysql://localhost/wonderla";
-            String userName = "root";
-            String password = "";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(url, userName, password);
-            System.out.println("Connection Created");
-            return connection;
+    public  Connection getConnection( ) throws SQLException, ClassNotFoundException {
+        if(connection == null) {
+            try {
+                String url = "jdbc:mysql://localhost/wonderla";
+                String userName = "root";
+                String password = "";
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                connection = DriverManager.getConnection(url, userName, password);
+                System.out.println("Connection Created");
+                return connection;
 
-        } catch (Exception ex) {
-             //System.out.println(ex);
+            } catch (Exception ex) {
+                //System.out.println(ex);
+                throw ex;
+            }
+        }else{
+            return connection;
         }
-        return null;
     }
 
     public void createStatement(){

@@ -8,7 +8,7 @@ public class Canteen {
     public void createFood(){
         foods.add(new Food("Briyani",  130,  20));
         foods.add(new Food("Dhosa",  30,  30));
-        foods.add(new Food("Rise",  90,  15));
+        foods.add(new Food("Rice",  90,  15));
         foods.add(new Food("Chicken Fry",  80,  10));
         foods.add(new Food("Parotta",  10,  50));
         createServer();
@@ -33,15 +33,17 @@ public class Canteen {
             int quantity = GeneralUtil.getInstance().checkAndReturnValidInteger();
 
             if(quantity > foods.get(food-1).getQuantity()){
+                System.out.println("Food is not Enough......plzz wait few minutes");
                 foods.get(food-1).importQuantity(quantity+10);
                 moneyCollector.importCharge((quantity * foods.get(food-1).getPrice()/100) * 10);
             }
 
             int price = foods.get(food-1).getPrice();
             int amount = Visitor.getVisitorInstance(visitor, (price * quantity));
-            if(amount != 0)
+            if(amount != 0){
                 moneyCollector.setAmount(amount, server);
                 foods.get(food-1).setQuantity(quantity);
+            }
             }else{
            System.out.println("Wrong Ticket Number");
        }

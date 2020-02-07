@@ -4,18 +4,15 @@ public class Visitor {
     private int wallet = 1000;
     private  int password;
     private String name;
-    //private int age;
     private String gender;
     private Ticket ticket;
 
-    public Visitor( String name, int age, String gender, Ticket ticket) {
+    public Visitor( String name, String gender, Ticket ticket) {
         this.name = name;
-        //this.age = age;
         this.gender = gender;
         this.ticket = ticket;
         this.password = ++number;
         System.out.println("--------------------------------------------------------");
-      //  System.out.println("Collect Your " + this.ticket.toString());
         System.out.println("Your password is - "+ this.password);
         System.out.println("--------------------------------------------------------");
         System.out.println();
