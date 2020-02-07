@@ -62,8 +62,11 @@ public class EntranceTicketCounter {
             visitors.add(visitor);
         }
         System.out.println("----------------------------------------------------------------------------------------------------------------");
-        if(entryFee != 0)
-        System.out.println("Collect your  -  "+visitor.getTicket().toString());
+        if(entryFee != 0){
+            int ticketNumber = visitor.getTicket().getTicketNumber();//"insert into employee (id, name, age, gender, email) value('"+id+"','"+name+"',"+age+",'"+gender+"','"+email+"')";
+            //DataBaseConnection.getDbInstance().getConnection("insert into visitors value('"+ticketNumber+"','"+name+"','"+age+"','"+gender+"','"+category+"','"+date+"','"+time+"')");
+            System.out.println("Collect your  -  "+visitor.getTicket().toString());
+        }
         System.out.println("----------------------------------------------------------------------------------------------------------------\n");
           this.amount += entryFee;
         System.out.println("Would you like another visitor registration ?");
@@ -95,4 +98,3 @@ public class EntranceTicketCounter {
         System.out.println("----------------------------------------------------------------------------------------------------------------");
     }
 }
-

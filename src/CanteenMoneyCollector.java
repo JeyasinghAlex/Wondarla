@@ -6,10 +6,10 @@ public class CanteenMoneyCollector {
         this.amount += amount;
     }
 
-//    public void importCharge(int amount){
-//        this.amount -= amount;
-//        System.out.println("Canteen kalla is - " + this.amount);
-//    }
+    public void importCharge(int amount){
+        this.amount -= amount;
+        System.out.println("Canteen kalla is - " + this.amount);
+    }
 
     public void getAmount() {
         System.out.println("Canteen kalla is - " + this.amount);

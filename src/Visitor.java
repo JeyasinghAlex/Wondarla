@@ -4,13 +4,13 @@ public class Visitor {
     private int wallet = 1000;
     private  int password;
     private String name;
-    private int age;
+    //private int age;
     private String gender;
     private Ticket ticket;
 
     public Visitor( String name, int age, String gender, Ticket ticket) {
         this.name = name;
-        this.age = age;
+        //this.age = age;
         this.gender = gender;
         this.ticket = ticket;
         this.password = ++number;
@@ -48,7 +48,7 @@ public class Visitor {
             System.out.println(this.name + " your new Wallet is - " + this.wallet+"\n");
              return amount;
         }
-        System.out.println("Insufficient balance Ride/Order Cancelled");
+       // System.out.println("Insufficient balance Ride/Order Cancelled");
         return  0;
     }
 
@@ -61,7 +61,7 @@ public class Visitor {
         return "Visitor{" +
                 "wallet=" + wallet +
                 ", name='" + name + '\'' +
-                ", age=" + age +
+               // ", age=" + age +
                 ", gender='" + gender + '\'' +
                 ", ticket=" + ticket +
                 '}';

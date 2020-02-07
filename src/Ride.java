@@ -1,5 +1,3 @@
-
-
 public class Ride implements RollerCoaster, WavePool, GiantWheel, RainDancing{
 
     protected String rideName;

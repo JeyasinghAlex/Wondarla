@@ -31,15 +31,17 @@ public class Canteen {
             int food = GeneralUtil.getInstance().checkAndReturnValidInteger();
             System.out.print("Enter the number of Quantity - ");
             int quantity = GeneralUtil.getInstance().checkAndReturnValidInteger();
-//            if(quantity > foods.get(food-1).getQuantity()){
-//                foods.get(food-1).importQuantity(quantity);
-//                moneyCollector.importCharge((quantity * foods.get(food-1).getPrice()/100) * 10);
-//            }
+
+            if(quantity > foods.get(food-1).getQuantity()){
+                foods.get(food-1).importQuantity(quantity+10);
+                moneyCollector.importCharge((quantity * foods.get(food-1).getPrice()/100) * 10);
+            }
+
             int price = foods.get(food-1).getPrice();
             int amount = Visitor.getVisitorInstance(visitor, (price * quantity));
             if(amount != 0)
                 moneyCollector.setAmount(amount, server);
-           // foods.get(food-1).setQuantity(quantity);
+                foods.get(food-1).setQuantity(quantity);
             }else{
            System.out.println("Wrong Ticket Number");
        }

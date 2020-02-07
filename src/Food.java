@@ -13,6 +13,7 @@ public class Food implements Briyani{
     public void setQuantity(int quantity) {
         this.quantity  -= quantity;
     }
+
     public void importQuantity(int quantity){
         this.quantity += quantity;
     }

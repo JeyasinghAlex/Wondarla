@@ -35,15 +35,11 @@ public class Operator {
             int actualRideAmount = selectedRide.getAmount();
             int premiumAmount = ticket.calculateMoney(actualRideAmount);
             int totalAmount = actualRideAmount + premiumAmount;
-            if(visitorTime < rideEndingTime && selectedRide.getCategory(visitorCategory)){
-                int returnedMoney = Visitor.getVisitorInstance(visitor, totalAmount);
-                if(returnedMoney !=0){
-                    // selectedRide.ticketCounter.recordBooks.add(new RideRecordBook(ticketNumber, ticket.getHolder()));
+            int returnedMoney = Visitor.getVisitorInstance(visitor, totalAmount);
+            if(visitorTime < rideEndingTime && selectedRide.getCategory(visitorCategory) && returnedMoney !=0){
                     selectedRide.getTicketCounterInstance().setAmount(returnedMoney, selectedRide);
                     System.out.println("---------------Successfully Ride Completed--------------------");
-                        ticket.setTime(rideStartingTime);
-                } else
-                    System.out.println("--------------- Ride cancelled--------------------");
+                    ticket.setTime(rideStartingTime);
             }else
                 System.out.println("You are not eligible for the game or May be yours late");
         }else
@@ -60,7 +56,7 @@ public class Operator {
         System.out.println("------------------------>  2)  No\n");
         System.out.print("Enter the Option  - ");
        int option = GeneralUtil.getInstance().checkAndReturnValidInteger();
-        if(option == 1)
+        if (option == 1)
             return true;
         else
             return false;
