@@ -1,11 +1,13 @@
+import java.sql.SQLException;
+
 public class Main {
 
-    public  static void main(String[] arg){
+    public  static void main(String[] arg) throws SQLException, ClassNotFoundException {
         ThemPark.getThemParkInstance().main();
         showUserOption();
     }
 
-    public static void showUserOption(){
+    public static void showUserOption() throws SQLException, ClassNotFoundException {
         System.out.println("\n1) Admin");
         System.out.println("2) Visitor");
         System.out.println("OtherWise Exit");
@@ -21,7 +23,7 @@ public class Main {
         }
     }
 
-    public static void showAdminOptions(){
+    public static void showAdminOptions() throws SQLException, ClassNotFoundException {
         System.out.println("\n1) Configuration of Game");
         System.out.println("2) Print Visitor Details");
         //System.out.println("3) Print Game Earning Details");
@@ -55,7 +57,7 @@ public class Main {
         }
     }
 
-    public static void showVisitorOptions(){
+    public static void showVisitorOptions() throws SQLException, ClassNotFoundException {
         System.out.println("\n1) Visitor Registration");
         System.out.println("2) Go Ride");
         System.out.println("3)Order Food");

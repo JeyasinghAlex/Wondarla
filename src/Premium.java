@@ -2,7 +2,7 @@ import java.time.LocalDate;
 
 public class Premium extends Ticket {
 
-    public Premium(int ticketNumber, String category, String holder, String type, LocalDate date, float time) {
+    public Premium(int ticketNumber, String category, String holder, String type, LocalDate date, float time)  {
         super(ticketNumber, category, holder, type, date, time);
     }
 

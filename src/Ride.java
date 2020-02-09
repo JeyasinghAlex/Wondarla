@@ -10,9 +10,6 @@ public  class Ride {
     protected Operator operator;
     protected TicketCounter ticketCounter;
 
-    public Ride(){
-
-    }
 
     public Ride(String rideName, int amount, int startTime, int endTime, boolean adult, boolean children, boolean senior, TicketCounter ticketCounter, Operator operator) {
         this.rideName = rideName;
@@ -24,6 +21,7 @@ public  class Ride {
         this.senior = senior;
         this.ticketCounter = ticketCounter;
         this.operator = operator;
+        RideDAO.insertRideDetails(rideName, startTime, endTime, adult, children, senior);
     }
 
     public String getRideName(){

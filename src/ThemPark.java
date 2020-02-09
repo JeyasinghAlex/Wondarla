@@ -1,18 +1,18 @@
 import java.util.ArrayList;
-
 public class ThemPark {
 
+    public static int time ;
     private EntranceTicketCounter ticketCounter = new EntranceTicketCounter();
     private Canteen canteen = new Canteen();
     private ArrayList<Ride> rides = new ArrayList<>();
-
     private   ArrayList<Operator> operators = new ArrayList<>();
     private static  ThemPark themPark = new ThemPark();
-        private ThemPark(){
+    /**ewn*/
 
-        }
-
-        public static ThemPark getThemParkInstance(){
+    private ThemPark(){
+        ThemParkTime.getParkTimeInstance().startThemParkTime();
+    }
+    public static ThemPark getThemParkInstance(){
             return themPark;
         }
 

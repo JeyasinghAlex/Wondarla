@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class Ticket {
@@ -9,13 +10,14 @@ public class Ticket {
     protected LocalDate date;
     protected float time;
 
-    public Ticket(int ticketNumber, String category, String holder, String type, LocalDate date, float time) {
+    public Ticket(int ticketNumber, String category, String holder, String type, LocalDate date, float time)  {
         this.ticketNumber = ticketNumber;
         this.category = category;
         this.holder = holder;
         this.type = type;
         this.date = date;
         this.time = time;
+        // DataBaseConnection.getDbInstance().getConnection().createStatement().executeUpdate("Insert into tickets(ticket_type) value('"+this.type+"')");
     }
 
     public int getTicketNumber() {

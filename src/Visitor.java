@@ -1,3 +1,4 @@
+
 public class Visitor {
 
     private static int number = 1000;
@@ -7,18 +8,27 @@ public class Visitor {
     private String gender;
     private Ticket ticket;
 
-    public Visitor( String name, String gender, Ticket ticket) {
+    public Visitor( String name, String gender, Ticket ticket)  {
         this.name = name;
         this.gender = gender;
         this.ticket = ticket;
         this.password = ++number;
         System.out.println("--------------------------------------------------------");
+        //VisitorDAO.insertVisitorDetails(this.name, this.gender, this.ticket.category, this.ticket.getTime());
+//        try{
+//           // DataBaseConnection.getDbInstance().getConnection().prepareStatement("insert into visitors(visitor_name, visitor_gender, visitor_category, visitor_credits) value('"+name+"','"+gender+"','"+this.getTicket().getCategory()+"','"+1000+"')");
+//
+//            //DataBaseConnection.getDbInstance().getConnection().createStatement().executeUpdate("insert into visitors(visitor_name, visitor_gender, visitor_category, visitor_credits) value('"+name+"','"+gender+"','"+this.getTicket().getCategory()+"','"+1000+"')");
+//        }catch (Exception ex){
+//            System.out.println(ex);
+//        }
+
         System.out.println("Your password is - "+ this.password);
         System.out.println("--------------------------------------------------------");
         System.out.println();
     }
 
-    public Ticket getTicket(){
+    public Ticket getTicket()  {
         return this.ticket;
     }
 
@@ -34,8 +44,7 @@ public class Visitor {
         }
    }
 
-    private int getWallet(int amount){
-
+   private int getWallet(int amount){
         System.out.println("Would you like to pay  "+amount+" ?");
         System.out.println("1) yes\n2)No");
         System.out.print("What is your wish ? - ");
@@ -45,7 +54,7 @@ public class Visitor {
             System.out.println(this.name + " your new Wallet is - " + this.wallet+"\n");
              return amount;
         }
-       // System.out.println("Insufficient balance Ride/Order Cancelled");
+        System.out.println("Insufficient balance /Order Cancelled");
         return  0;
     }
 

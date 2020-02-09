@@ -7,7 +7,7 @@ public class EntranceTicketCounter {
     private int amount;
     private ArrayList<Visitor> visitors = new ArrayList<>();
 
-    public void giveTicket() {
+    public void giveTicket()  {
         System.out.print("\nEnter your Name - ");
         String name = GeneralUtil.getInstance().getString();
         System.out.println("Gender - 1) Male");
@@ -33,8 +33,9 @@ public class EntranceTicketCounter {
             category = "Senior";
         }
         LocalDate date = LocalDate.now();
-        System.out.print("What is the time Now  ? - ");
-        int time = Integer.parseInt(GeneralUtil.getInstance().getString());
+       // System.out.print("What is the time Now  ? - ");
+       // int time = Integer.parseInt(GeneralUtil.getInstance().getString());
+        float time = ThemParkTime.getParkTimeInstance().getThemParkTime();
         System.out.println("Ticket Type  - 1) Premium");
         System.out.println("                        2) General");
         System.out.print("Select your Type - ");
@@ -57,13 +58,16 @@ public class EntranceTicketCounter {
              fee = generalTicket.calculateMoney(entryFee);
              visitor = new Visitor(name, gender, generalTicket);
             entryFee = Visitor.getVisitorInstance(visitor, (entryFee + fee));
-            if(entryFee != 0)
-            visitors.add(visitor);
         }
         System.out.println("----------------------------------------------------------------------------------------------------------------");
         if(entryFee != 0){
-            int ticketNumber = visitor.getTicket().getTicketNumber();//"insert into employee (id, name, age, gender, email) value('"+id+"','"+name+"',"+age+",'"+gender+"','"+email+"')";
-            //DataBaseConnection.getDbInstance().getConnection("insert into visitors value('"+ticketNumber+"','"+name+"','"+age+"','"+gender+"','"+category+"','"+date+"','"+time+"')");
+            visitors.add(visitor);
+            /** DB Connections */
+            VisitorDAO.insertVisitorDetails(name, gender, category, time);
+            TicketDAO.insertTicketDetails(type);
+            VisitorDAO.insertTicketToVisitorRelation();
+           // DataBaseConnection.getDbInstance().getConnection().createStatement().executeUpdate("insert into visitors(name, gender, category, date, time) value('"+name+"','"+gender+"','"+category+"','"+date+"','"+time+"')");
+           // DataBaseConnection.getDbInstance().getConnection().createStatement().executeUpdate("insert into visitors(visitor_name, visitor_gender, visitor_category, visitor_credits) value('"+name+"','"+gender+"','"+category+"','"+1000+"')");
             System.out.println("Collect your  -  "+visitor.getTicket().toString());
         }
         System.out.println("----------------------------------------------------------------------------------------------------------------\n");
@@ -74,7 +78,7 @@ public class EntranceTicketCounter {
             giveTicket();
     }
 
-    public Visitor searchVisitors(int ticketNumber){
+    public Visitor searchVisitors(int ticketNumber)  {
         for(int i = 0; i < visitors.size(); i++){
                 if(visitors.get(i).getTicket().getTicketNumber() == ticketNumber){
                     return visitors.get(i);
