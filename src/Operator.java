@@ -1,7 +1,7 @@
 public class Operator {
 
     private String operatorName;
-    private String hisGame;
+    //private String hisGame;
     public Operator(String operatorName) {
         this.operatorName = operatorName;
     }
