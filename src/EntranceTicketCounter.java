@@ -44,14 +44,12 @@ public class EntranceTicketCounter {
         int entryFee = 30;
         int fee = 0;
         Visitor visitor = null;
-        if(selected == 1){
+        if (selected == 1){
             type = "Premium";
             Premium premiumTicket = new Premium(++ticketNumber, category, name, type, date, time);
            fee = premiumTicket.calculateMoney(entryFee);
             visitor = new Visitor(name, gender, premiumTicket);
             entryFee = Visitor.getVisitorInstance(visitor, (entryFee+fee));
-            if(entryFee != 0)
-            visitors.add(visitor);
         } else{
             type = "General";
             General generalTicket = new General(++ticketNumber, category, name, type, date, time);

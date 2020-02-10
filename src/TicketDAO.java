@@ -1,8 +1,5 @@
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
-
-import static javax.swing.UIManager.getInt;
 
 public class TicketDAO {
 
@@ -12,7 +9,7 @@ public class TicketDAO {
         try{
             pstmt = DataBaseConnection.getDbInstance().getConnection().prepareStatement(query);
             pstmt.setString(1, ticket_type);
-            pstmt.executeUpdate();
+            int rowsAffected = pstmt.executeUpdate();
             System.out.println("Ticket Insert Query Successfully Executed");
         }catch(Exception ex){
             System.out.println(ex);
@@ -20,10 +17,9 @@ public class TicketDAO {
     }
 
     public static int getTicketId(){
-
         String query = "select * from tickets order by ticket_id DESC LIMIT 1";
         try{
-                  ResultSet rs =  DataBaseConnection.getDbInstance().getConnection().createStatement().executeQuery(query);
+                  ResultSet rs =  DataBaseConnection.getDbInstance().getConnection().prepareStatement(query).executeQuery();
                   if(rs.next())
                     return   rs.getInt(1);
         }catch (Exception ex){

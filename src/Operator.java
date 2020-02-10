@@ -36,13 +36,18 @@ public class Operator {
             int actualRideAmount = selectedRide.getAmount();
             int premiumAmount = ticket.calculateMoney(actualRideAmount);
             int totalAmount = actualRideAmount + premiumAmount;
-            int returnedMoney = Visitor.getVisitorInstance(visitor, totalAmount);
-            if(visitorTime < rideEndingTime && selectedRide.getCategory(visitorCategory) && returnedMoney !=0){
-                    selectedRide.getTicketCounterInstance().setAmount(returnedMoney, selectedRide);
-                    System.out.println("---------------Successfully Ride Completed--------------------");
-                    ticket.setTime(rideStartingTime);
+           // int returnedMoney = Visitor.getVisitorInstance(visitor, totalAmount);
+            if(visitorTime < rideEndingTime && rideStartingTime <= ThemParkTime.getParkTimeInstance().getThemParkTime() && selectedRide.getCategory(visitorCategory)){
+                    int returnedMoney = Visitor.getVisitorInstance(visitor, totalAmount);
+                    if(returnedMoney != 0){
+                        selectedRide.getTicketCounterInstance().getRecordBooks().add(new RideRecordBook(ticketNumber, ticket.getHolder()));
+                        selectedRide.getTicketCounterInstance().setAmount(returnedMoney, selectedRide);
+                        System.out.println("---------------Successfully Ride Completed--------------------");
+                        ticket.setTime(rideStartingTime);
+                    }else
+                        System.out.println("Ride Cancelled due to insufficient balance");
             }else
-                System.out.println("You are not eligible for the game or May be yours late");
+                System.out.println("You are not eligible for the game (or) Still Ride is not start (or) May be yours late");
         }else
             System.out.println("Wrong Ticket Number");
     }

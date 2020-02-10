@@ -13,7 +13,7 @@ public class RideDAO {
             pstmt.setBoolean(4, is_allow_adult);
             pstmt.setBoolean(5, is_allow_children);
             pstmt.setBoolean(6, is_allow_senior);
-            pstmt.executeUpdate();
+            int rowsAffected = pstmt.executeUpdate();
             System.out.println("Ride Insert Query Successfully Executed");
         }catch(Exception ex){
             System.out.println(ex);

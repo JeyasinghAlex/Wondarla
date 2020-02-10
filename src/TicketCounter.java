@@ -16,4 +16,10 @@ public class TicketCounter {
         this.amount += amount;
         System.out.println(selectedGame.getRideName() +" Total Earning is - "+this.getAmount());
     }
+
+    public void showRideEarningDetails(){
+        for(int i = 0; i < recordBooks.size(); i++){
+            System.out.println(recordBooks.get(i).toString());
+        }
+    }
 }

@@ -9,9 +9,7 @@ public class RideRecordBook {
 
     @Override
     public String toString() {
-        return "OperatorRecordBook{" +
-                "ticketNumber=" + ticketNumber +
-                ", name=" + name +
-                '}';
+        return "ticketNumber = " + ticketNumber +
+                ",  name = " + name;
     }
 }

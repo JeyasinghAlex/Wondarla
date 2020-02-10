@@ -14,9 +14,8 @@ public class VisitorDAO {
                  pstmt.setString(3,visitor_category);
                  pstmt.setFloat(4,visitor_time);
                  pstmt.setInt(5,1000);
-                 pstmt.executeUpdate();
+                 int rowsAffected = pstmt.executeUpdate();
                  System.out.println("Visitor Insert Query Successfully Executed");
-                 //insertTicketToVisitorRelation();
             }catch (Exception ex){
                 System.out.println(ex);
             }
@@ -25,7 +24,7 @@ public class VisitorDAO {
     public static int getVisitorId(){
         String query = "select * from visitors order by visitor_id DESC LIMIT 1";
         try{
-            ResultSet rs =  DataBaseConnection.getDbInstance().getConnection().createStatement().executeQuery(query);
+            ResultSet rs = DataBaseConnection.getDbInstance().getConnection().prepareStatement(query).executeQuery();
             if(rs.next())
                 return rs.getInt(1);
         }catch (Exception ex){
@@ -41,8 +40,22 @@ public class VisitorDAO {
             PreparedStatement pstmt = DataBaseConnection.getDbInstance().getConnection().prepareStatement(query);
             pstmt.setInt(1, VisitorDAO.getVisitorId());
             pstmt.setInt(2, TicketDAO.getTicketId());
-            pstmt.executeUpdate();
+           int rowsAffected =  pstmt.executeUpdate();
             System.out.println("Query Insert Successfully");
+        }catch (Exception ex){
+            System.out.println(ex);
+        }
+    }
+
+    public static void getVisitorDetails(){
+        String query = "select * from visitors";
+        try{
+            ResultSet rs = DataBaseConnection.getDbInstance().getConnection().prepareStatement(query).executeQuery();
+            while (rs.next()){
+                String data = rs.getInt(1) + ":" + rs.getString(2) + ":" +rs.getString(3) + ":" + rs.getString(4) + ":" + rs.getFloat(5) + ":" + rs.getInt(6);
+                System.out.println(data);
+            }
+
         }catch (Exception ex){
             System.out.println(ex);
         }

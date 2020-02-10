@@ -20,6 +20,10 @@ public class ThemPark {
         return ticketCounter;
     }
 
+    public ArrayList<Ride> getRides() {
+        return rides;
+    }
+
     public Canteen getCanteenInstance() {
         return canteen;
     }
@@ -57,6 +61,13 @@ public class ThemPark {
             rides.get(selectedRide-1).operator.operateRide(rides.get(selectedRide-1));
         } else
             System.out.println("Invalid Selection");
+    }
+
+    public void showRideEarningDetails(){
+        for(int i = 0; i < rides.size(); i++){
+            System.out.println("------------------"+rides.get(i).getRideName()+"------------------");
+            rides.get(i).getTicketCounterInstance().showRideEarningDetails();
+        }
     }
 
     private  void createOperator() {

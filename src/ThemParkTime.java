@@ -7,7 +7,6 @@ public class ThemParkTime {
     public static ThemParkTime getParkTimeInstance(){
         return parkTime;
     }
-
     private static float time = 0;
     public void startThemParkTime(){
 
