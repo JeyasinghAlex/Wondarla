@@ -39,9 +39,9 @@ public class Canteen {
             }
 
             int price = foods.get(food-1).getPrice();
-            int amount = Visitor.getVisitorInstance(visitor, (price * quantity));
-            if(amount != 0){
-                moneyCollector.setAmount(amount, server);
+            //int amount = Visitor.getVisitorInstance(visitor, (price * quantity));
+            if(visitor.setWallet(price*quantity)){
+                moneyCollector.setAmount(price*quantity, server);
                 foods.get(food-1).setQuantity(quantity);
             }
             }else{

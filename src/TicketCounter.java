@@ -3,7 +3,29 @@ import java.util.ArrayList;
 public class TicketCounter {
     private int amount;
     private ArrayList<RideRecordBook> recordBooks = new ArrayList<>();
+    //---------------------------------------------------------------------------------
+    /** Inner Class */
 
+    private ArrayList<Records> records = new ArrayList<>();
+    private static class Records{
+        private int ticketNumber;
+        private String name;
+
+        public Records(int ticketNumber, String name){
+            this.ticketNumber = ticketNumber;
+            this.name = name;
+        }
+    }
+
+    public void addRecordInRecordBook(int ticketNumber, String name){
+            records.add(new Records(ticketNumber, name));
+    }
+
+    public ArrayList<Records> getRecords() {
+        return records;
+    }
+
+    //--------------------------------------------------------------------------------
     public int getAmount() {
         return amount;
     }

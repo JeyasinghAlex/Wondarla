@@ -7,15 +7,16 @@ public class ThemParkTime {
     public static ThemParkTime getParkTimeInstance(){
         return parkTime;
     }
-    private static float time = 0;
+    private static float time = 1;
     public void startThemParkTime(){
 
         new Thread( ()->
         {
             while (true){
+                System.out.println("--------------------------------------------------Them park time is - " + time);
                 try {
                     Thread.sleep(60000);
-                    if(++time > 24){
+                    if(time++ > 24){
                         time = 1;
                         System.out.println("----------Next Day Started----------");
                     }

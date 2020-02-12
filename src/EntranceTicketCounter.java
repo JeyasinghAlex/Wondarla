@@ -42,23 +42,23 @@ public class EntranceTicketCounter {
         int selected = GeneralUtil.getInstance().checkAndReturnValidInteger();
         String type = "";
         int entryFee = 30;
-        int fee = 0;
+        int entranceTicketAmount = 0;
         Visitor visitor = null;
         if (selected == 1){
             type = "Premium";
             Premium premiumTicket = new Premium(++ticketNumber, category, name, type, date, time);
-           fee = premiumTicket.calculateMoney(entryFee);
+           entranceTicketAmount = premiumTicket.calculateMoney(entryFee);
             visitor = new Visitor(name, gender, premiumTicket);
-            entryFee = Visitor.getVisitorInstance(visitor, (entryFee+fee));
+            //entryFee = Visitor.getVisitorInstance(visitor, (entryFee+entranceTicketAmount));
         } else{
             type = "General";
             General generalTicket = new General(++ticketNumber, category, name, type, date, time);
-             fee = generalTicket.calculateMoney(entryFee);
+             entranceTicketAmount = generalTicket.calculateMoney(entryFee);
              visitor = new Visitor(name, gender, generalTicket);
-            entryFee = Visitor.getVisitorInstance(visitor, (entryFee + fee));
+            //entryFee = Visitor.getVisitorInstance(visitor, (entryFee + entranceTicketAmount));
         }
         System.out.println("----------------------------------------------------------------------------------------------------------------");
-        if(entryFee != 0){
+        if( visitor.setWallet(entranceTicketAmount)){
             visitors.add(visitor);
             /** DB Connections */
             VisitorDAO.insertVisitorDetails(name, gender, category, time);

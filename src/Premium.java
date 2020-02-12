@@ -7,7 +7,7 @@ public class Premium extends Ticket {
     }
 
     public int calculateMoney(int amount){
-       return (amount/2);
+       return amount+(amount/2);
     }
 
     public void setTime(int time){

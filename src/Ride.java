@@ -1,4 +1,4 @@
-public  class Ride {
+public  abstract class Ride {
 
     protected String rideName;
     protected int amount;
@@ -23,9 +23,14 @@ public  class Ride {
         RideDAO.insertRideDetails(rideName, startTime, endTime, adult, children, senior);
     }
 
+    public Ride(){
+
+    }
     public String getRideName(){
         return this.rideName;
     }
+
+   // public abstract String getRideName();
 
     public int getStartTime() {
         return startTime;
