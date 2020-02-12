@@ -1,4 +1,4 @@
-public  abstract class Ride {
+public  class Ride {
 
     protected String rideName;
     protected int amount;
