@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="83735a9e-b06a-41d6-af10-1199a6172303" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\coaster\Wondarla" />
+        <option value="D:\coaster\Wondarla\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1X41eOzmPrGMotGzItE7JjIWk4f" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="DataBaseConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DataBaseConnection" />
+      <module name="Wondarla" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Wondarla" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Premium" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Premium" />
+      <module name="Wondarla" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ThemParkConstance" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ThemParkConstance" />
+      <module name="Wondarla" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VisitorDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="VisitorDAO" />
+      <module name="Wondarla" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.VisitorDAO" />
+        <item itemvalue="Application.DataBaseConnection" />
+        <item itemvalue="Application.Premium" />
+        <item itemvalue="Application.ThemParkConstance" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="83735a9e-b06a-41d6-af10-1199a6172303" name="Default Changelist" comment="" />
+      <created>1580290647100</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580290647100</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Remove Scanner From ThemParkConstance">
+      <created>1580358003575</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1580358003575</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Extra Class Added">
+      <created>1580369133110</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1580369133110</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Extra Class Added and some Modification">
+      <created>1580388149731</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1580388149731</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Extra Class Added and some Modification">
+      <created>1580396905946</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1580396905946</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Extra Class Added and some Modification">
+      <created>1580398925805</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1580398925805</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Canteen Created">
+      <created>1580417758702</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1580417758702</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Canteen Created">
+      <created>1580483813934</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1580483813934</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Canteen Created">
+      <created>1580486856764</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1580486856764</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Canteen Created">
+      <created>1580488796112</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1580488796112</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Canteen Created">
+      <created>1580502029677</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1580502029677</updated>
+    </task>
+    <task id="LOCAL-00011" summary="first 3rd -output chuck failed">
+      <created>1580581309799</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1580581309799</updated>
+    </task>
+    <task id="LOCAL-00012" summary="first 3rd -output chuck failed">
+      <created>1580645200403</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1580645200403</updated>
+    </task>
+    <task id="LOCAL-00013" summary="first 4rd -output chuck failed">
+      <created>1580675281961</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1580675281961</updated>
+    </task>
+    <task id="LOCAL-00014" summary="first 4rd -output chuck failed">
+      <created>1580834657013</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1580834657014</updated>
+    </task>
+    <task id="LOCAL-00015" summary="first 4rd -output chuck failed">
+      <created>1580834805649</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1580834805649</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fully changed">
+      <created>1580851936048</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1580851936048</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fully changed">
+      <created>1580923339515</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1580923339515</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fully changed">
+      <created>1580927101912</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1580927101912</updated>
+    </task>
+    <task id="LOCAL-00019" summary="fully changed">
+      <created>1580937602239</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1580937602239</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fully changed">
+      <created>1580972433633</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1580972433633</updated>
+    </task>
+    <task id="LOCAL-00021" summary="7 attempt field">
+      <created>1580979127357</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1580979127357</updated>
+    </task>
+    <task id="LOCAL-00022" summary="7 attempt field">
+      <created>1580981584003</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1580981584003</updated>
+    </task>
+    <task id="LOCAL-00023" summary="8 attempt may be success">
+      <created>1581020732782</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1581020732782</updated>
+    </task>
+    <task id="LOCAL-00024" summary="8 attempt may be success">
+      <created>1581020928276</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1581020928276</updated>
+    </task>
+    <task id="LOCAL-00025" summary="8 attempt may be success">
+      <created>1581100499613</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1581100499613</updated>
+    </task>
+    <task id="LOCAL-00026" summary="8 attempt may be success">
+      <created>1581105494395</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1581105494395</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Data Base Connected and test some queries">
+      <created>1581284533461</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1581284533461</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Data Base Connected and test some queries">
+      <created>1581348458987</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1581348458987</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Data Base Connected and test some queries">
+      <created>1581369491807</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1581369491807</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Many Changes --">
+      <created>1581545232140</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1581545232140</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Many Changes --">
+      <created>1581545272925</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1581545272925</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Many Changes --">
+      <created>1581612132870</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1581612132870</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Remove Scanner From ThemParkConstance" />
+    <MESSAGE value="Extra Class Added" />
+    <MESSAGE value="Extra Class Added and some Modification" />
+    <MESSAGE value="Canteen Created" />
+    <MESSAGE value="first 3rd -output chuck failed" />
+    <MESSAGE value="first 4rd -output chuck failed" />
+    <MESSAGE value="fully changed" />
+    <MESSAGE value="7 attempt field" />
+    <MESSAGE value="8 attempt may be success" />
+    <MESSAGE value="Data Base Connected and test some queries" />
+    <MESSAGE value="Many Changes --" />
+    <option name="LAST_COMMIT_MESSAGE" value="Many Changes --" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser" timestamp="1581583685814">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1581583685814" />
+    <state x="566" y="298" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1581504373118">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="566" y="298" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1581504373118" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581573130911">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1581573130911" />
+    <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580467870288">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1580467870288" />
+    <state x="424" y="7" key="CommitChangelistDialog2" timestamp="1581612132238">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="424" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1581612132238" />
+    <state x="501" y="155" key="FileChooserDialogImpl" timestamp="1581062150634">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="501" y="155" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1581062150634" />
+    <state x="647" y="307" width="258" height="210" key="Github.ShareDialog" timestamp="1580334329539">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="647" y="307" width="258" height="210" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1580334329539" />
+    <state x="612" y="118" key="Github.UntrackedFilesDialog" timestamp="1580334358513">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="612" y="118" key="Github.UntrackedFilesDialog/0.0.1536.824@0.0.1536.824" timestamp="1580334358513" />
+    <state width="1493" height="146" key="GridCell.Tab.0.bottom" timestamp="1581612262371">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="146" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1581612262371" />
+    <state width="1493" height="146" key="GridCell.Tab.0.center" timestamp="1581612262367">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="146" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1581612262367" />
+    <state width="1493" height="146" key="GridCell.Tab.0.left" timestamp="1581612262367">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="146" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1581612262367" />
+    <state width="1493" height="146" key="GridCell.Tab.0.right" timestamp="1581612262371">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="146" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1581612262371" />
+    <state width="1493" height="470" key="GridCell.Tab.1.bottom" timestamp="1581007817304">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="470" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1581007817304" />
+    <state width="1493" height="470" key="GridCell.Tab.1.center" timestamp="1581007817304">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="470" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1581007817304" />
+    <state width="1493" height="470" key="GridCell.Tab.1.left" timestamp="1581007817304">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="470" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1581007817304" />
+    <state width="1493" height="470" key="GridCell.Tab.1.right" timestamp="1581007817304">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="470" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1581007817304" />
+    <state x="277" y="0" key="SettingsEditor" timestamp="1581498786497">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1581498786497" />
+    <state x="490" y="154" width="540" height="524" key="StructurePopup" timestamp="1580892168140">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="490" y="154" width="540" height="524" key="StructurePopup/0.0.1536.824@0.0.1536.824" timestamp="1580892168140" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1581612134861">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1581612134861" />
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581527235754">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1581527235754" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1581569744550">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1581569744550" />
+    <state x="526" y="307" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1581062109121">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="526" y="307" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1581062109121" />
+    <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580407127728">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1580407127728" />
+    <state x="209" y="34" key="new project wizard" timestamp="1581356985539">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="34" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1581356985539" />
+    <state x="475" y="42" key="refactoring.ChangeSignatureDialog" timestamp="1581105960688">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="475" y="42" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1581105960688" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1581277245642">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1581277245642" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1581532550548">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1581532550548" />
+  </component>
+</project>
