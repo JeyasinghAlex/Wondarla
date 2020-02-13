@@ -11,18 +11,9 @@ public class Ride {
     protected Operator operator;
     protected TicketCounter ticketCounter;
 
-    public Ride(String rideName, int amount, int startTime, int endTime, boolean adult, boolean children, boolean senior, TicketCounter ticketCounter, Operator operator, boolean isConfigure) {
+    public Ride(String rideName, TicketCounter ticketCounter) {
         this.rideName = rideName;
-        this.amount = amount;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.isAllowAdult = adult;
-        this.isAllowChildren = children;
-        this.isAllowSenior = senior;
         this.ticketCounter = ticketCounter;
-        this.operator = operator;
-        this.isConfigure = isConfigure;
-        RideDAO.insertRideDetails(rideName, startTime, endTime, adult, children, senior);
     }
 
     public String getRideName(){
@@ -80,6 +71,7 @@ public class Ride {
     }
 
     public void setConfigure(boolean configure) {
+        RideDAO.insertRideDetails(this.rideName, this.startTime, this.endTime, this.isAllowAdult, this.isAllowChildren, this.isAllowSenior);
         isConfigure = configure;
     }
 

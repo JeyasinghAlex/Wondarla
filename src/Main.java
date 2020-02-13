@@ -5,10 +5,7 @@ public class Main {
         ThemPark.getThemParkInstance().main();
         showUserOption();
     }
-//Sparrow
-    //Thsi line is in demo branch
-    //Adding a second line
-    //third line
+
     public static void showUserOption()  {
         System.out.println("\n1) Admin");
         System.out.println("2) Visitor");
@@ -80,12 +77,15 @@ public class Main {
                 break;
             case 3:
                 Server server = ThemPark.getThemParkInstance().getCanteenInstance().selectServer();
-                System.out.println("\nServer  - " + server.getName() + " handle the Order");
+                System.out.println("\nServer  - " + server.getName() + " handle the Order\n");
                 ThemPark.getThemParkInstance().getCanteenInstance().orderFood(server);
                 showUserOption();
                 break;
             case 4:
-                //
+                System.out.print("Enter the ticket number - ");
+                int ticketNumber = GeneralUtil.getInstance().checkAndReturnValidInteger();
+                ThemPark.getThemParkInstance().getTicketCounterInstance().searchVisitors(ticketNumber).setWallet(0);
+                showUserOption();
                 break;
             default:
                 break;

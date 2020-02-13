@@ -30,7 +30,7 @@ public class ThemPark {
             System.out.println("--------------------------------------------------------");
             System.out.println("|                    Welcome to Theme Park                 |");
             System.out.println("--------------------------------------------------------");
-            createOperator();
+            //createOperator();
             canteen.createFood();
         }
     private int getOperator = 0;
@@ -87,15 +87,11 @@ public class ThemPark {
     operators.add(new Operator("Maddy"));
     operators.add(new Operator("Darshon"));
 
-    rides.add(new RollerCoaster(ThemeParkConstants.Game.ROLLER_COASTER,  0, 0, 0, false, false,  false, new TicketCounter(), null, false));
-    rides.add(new Columbus(ThemeParkConstants.Game.COLUMBUS,  0, 0, 0, false, false,  false, new TicketCounter(), null, false));
-    rides.add(new GiantWheel(ThemeParkConstants.Game.GIANT_WHEEL,  0, 0, 0, false, false,  false, new TicketCounter(), null, false));
-    rides.add(new RainBowDragon(ThemeParkConstants.Game.RAINBOW_DRAGON,  0, 0, 0, false, false,  false, new TicketCounter(), null, false));
-    rides.add(new WaterPendulum(ThemeParkConstants.Game.WATER_PENDULUM,  0, 0, 0, false, false,  false, new TicketCounter(), null, false));
-    rides.add(new WavePool(ThemeParkConstants.Game.WAVE_POOL,  0, 0, 0, false, false,  false, new TicketCounter(), null, false));
-}
-
-    private  void createOperator() {
-
+    rides.add(new RollerCoaster(ThemeParkConstants.Game.ROLLER_COASTER, new TicketCounter()));
+    rides.add(new Columbus(ThemeParkConstants.Game.COLUMBUS,  new TicketCounter()));
+    rides.add(new GiantWheel(ThemeParkConstants.Game.GIANT_WHEEL, new TicketCounter()));
+    rides.add(new RainBowDragon(ThemeParkConstants.Game.RAINBOW_DRAGON,  new TicketCounter()));
+    rides.add(new WaterPendulum(ThemeParkConstants.Game.WATER_PENDULUM,  new TicketCounter()));
+    rides.add(new WavePool(ThemeParkConstants.Game.WAVE_POOL,  new TicketCounter()));
     }
 }
