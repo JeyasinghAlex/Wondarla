@@ -7,6 +7,7 @@ public class Main {
     }
 //Sparrow
     //Thsi line is in demo branch
+    //Adding a second line
     public static void showUserOption()  {
         System.out.println("\n1) Admin");
         System.out.println("2) Visitor");
