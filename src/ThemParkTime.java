@@ -4,6 +4,7 @@ public class ThemParkTime {
     private ThemParkTime(){
 
     }
+
     public static ThemParkTime getParkTimeInstance(){
         return parkTime;
     }
@@ -13,7 +14,7 @@ public class ThemParkTime {
         new Thread( ()->
         {
             while (true){
-                System.out.println("--------------------------------------------------Them park time is - " + time);
+                System.out.println("\n--------------------------------------------------Them park time is - " + time);
                 try {
                     Thread.sleep(60000);
                     if(time++ > 24){
@@ -26,6 +27,7 @@ public class ThemParkTime {
             }
         }).start();
     }
+
 
      public float getThemParkTime(){
                 return time;

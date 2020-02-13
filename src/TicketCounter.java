@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
 public class TicketCounter {
-    private int amount;
-    private ArrayList<RideRecordBook> recordBooks = new ArrayList<>();
-    //---------------------------------------------------------------------------------
-    /** Inner Class */
 
+    private int amount;
+    /** Inner Class */
     private ArrayList<Records> records = new ArrayList<>();
+
+    //---------------------------------------------------------------------------------
     private static class Records{
         private int ticketNumber;
         private String name;
@@ -15,7 +15,13 @@ public class TicketCounter {
             this.ticketNumber = ticketNumber;
             this.name = name;
         }
+
+        @Override
+        public String toString() {
+            return "{ ticketNumber = " + ticketNumber + "name = " + name +'}';
+        }
     }
+//-----------------------------------------------------------------------------------
 
     public void addRecordInRecordBook(int ticketNumber, String name){
             records.add(new Records(ticketNumber, name));
@@ -25,13 +31,8 @@ public class TicketCounter {
         return records;
     }
 
-    //--------------------------------------------------------------------------------
     public int getAmount() {
         return amount;
-    }
-
-    public ArrayList<RideRecordBook> getRecordBooks() {
-        return recordBooks;
     }
 
     public void setAmount(int amount, Ride selectedGame) {
@@ -40,8 +41,8 @@ public class TicketCounter {
     }
 
     public void showRideEarningDetails(){
-        for(int i = 0; i < recordBooks.size(); i++){
-            System.out.println(recordBooks.get(i).toString());
+        for(int i = 0; i < getRecords().size(); i++){
+            System.out.println(getRecords().get(i).toString());
         }
     }
 }

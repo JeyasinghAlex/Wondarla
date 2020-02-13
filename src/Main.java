@@ -77,7 +77,7 @@ public class Main {
                 break;
             case 3:
                 Server server = ThemPark.getThemParkInstance().getCanteenInstance().selectServer();
-                System.out.println("Server  - " + server.getName() + " handle the Order");
+                System.out.println("\nServer  - " + server.getName() + " handle the Order");
                 ThemPark.getThemParkInstance().getCanteenInstance().orderFood(server);
                 showUserOption();
                 break;

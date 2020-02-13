@@ -23,51 +23,43 @@ public class Visitor {
         return this.ticket;
     }
 
-//   private boolean passwordValidation(){
-//       System.out.print("Enter your password - ");
-//       int password = GeneralUtil.getInstance().checkAndReturnValidInteger();
-//        if(this.password == password){
-//            System.out.println("--- Password is match ---");
-//            return true;
-//        }else{
-//            System.out.println("--- Password is incorrect ---");
-//            return  false;
-//        }
-//   }
+    private boolean passwordValidation(){
+        System.out.print("Enter your Password - ");
+        int pwd = GeneralUtil.getInstance().checkAndReturnValidInteger();
+        if(this.password == pwd){
+            return true;
+        }else{
+            System.out.println("Wrong password");
+            return false;
+        }
+    }
 
-//   private int getWallet(int amount){
-//        System.out.println("Would you like to pay  "+amount+" ?");
-//        System.out.println("1) yes\n2)No");
-//        System.out.print("What is your wish ? - ");
-//        if(GeneralUtil.getInstance().checkAndReturnValidInteger() == 1)
-//        if(passwordValidation() && this.wallet >= amount){
-//             this.wallet = this.wallet-amount;
-//            System.out.println(this.name + " your new Wallet is - " + this.wallet+"\n");
-//             return amount;
-//        }
-//        System.out.println("Insufficient balance /Order Cancelled");
-//        return  0;
-//    }
-
-    public Boolean setWallet(int wallet){
-        if(this.wallet >= wallet){
-            this.wallet -= wallet;
-            System.out.println(this.name + " your new Wallet is - " + this.wallet+"\n");
+    private boolean getPermission(int amount){
+        System.out.println("If you want to pay  - " + amount + "?\n1) Yes \n 2) No");
+        System.out.println("Enter your option");
+        if(GeneralUtil.getInstance().checkAndReturnValidInteger() == 1){
             return true;
         }else
             return false;
     }
 
-//    public static int getVisitorInstance(Visitor visitor, int amount){
-//        return visitor.getWallet(amount);
-//    }
+    public Boolean setWallet(int wallet){
+            if(this.wallet >= wallet && getPermission(wallet) && passwordValidation()){
+                this.wallet -= wallet;
+                System.out.println(this.name + " your debited amount is - " + wallet );
+                System.out.println(this.name + " your new Wallet is - " + this.wallet+"\n");
+                return true;
+            }else{
+                System.out.println("Insufficient balance");
+                return false;
+            }
+    }
 
     @Override
     public String toString() {
         return "Visitor{" +
                 "wallet=" + wallet +
                 ", name='" + name + '\'' +
-               // ", age=" + age +
                 ", gender='" + gender + '\'' +
                 ", ticket=" + ticket +
                 '}';

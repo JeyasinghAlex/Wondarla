@@ -67,9 +67,9 @@ public class EntranceTicketCounter {
            // DataBaseConnection.getDbInstance().getConnection().createStatement().executeUpdate("insert into visitors(name, gender, category, date, time) value('"+name+"','"+gender+"','"+category+"','"+date+"','"+time+"')");
            // DataBaseConnection.getDbInstance().getConnection().createStatement().executeUpdate("insert into visitors(visitor_name, visitor_gender, visitor_category, visitor_credits) value('"+name+"','"+gender+"','"+category+"','"+1000+"')");
             System.out.println("Collect your  -  "+visitor.getTicket().toString());
+            this.amount += entryFee;
         }
         System.out.println("----------------------------------------------------------------------------------------------------------------\n");
-          this.amount += entryFee;
         System.out.println("Would you like another visitor registration ?");
         boolean result = GeneralUtil.getInstance().isAllowRide();
         if(result)
