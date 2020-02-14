@@ -1,4 +1,4 @@
-import java.sql.SQLException;
+
 import java.time.LocalDate;
 
 public class Ticket {

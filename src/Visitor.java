@@ -58,9 +58,9 @@ public class Visitor {
     @Override
     public String toString() {
         return "Visitor{" +
-                "wallet=" + wallet +
-                ", name='" + name + '\'' +
-                ", gender='" + gender + '\'' +
+                "name = " + name +
+                ", gender ='" + gender + '\'' +
+                ", wallet = '" + wallet + '\'' +
                 ", ticket=" + ticket +
                 '}';
     }

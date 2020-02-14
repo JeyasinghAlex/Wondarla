@@ -18,7 +18,7 @@ public class Canteen {
         return  moneyCollector;
     }
 
-   public void orderFood(Server server){
+     public void orderFood(Server server){
        System.out.print("Enter your Ticket Number - ");
        int ticketNumber = GeneralUtil.getInstance().checkAndReturnValidInteger();
        Visitor visitor = ThemPark.getThemParkInstance().getTicketCounterInstance().searchVisitors(ticketNumber);
@@ -41,8 +41,10 @@ public class Canteen {
             int price = foods.get(food-1).getPrice();
             //int amount = Visitor.getVisitorInstance(visitor, (price * quantity));
             if(visitor.setWallet(price*quantity)){
+                FoodDAO.insertOrderDetails(quantity, price);
                 moneyCollector.setAmount(price*quantity, server);
                 foods.get(food-1).setQuantity(quantity);
+                CanteenDAO.insertCanteenDetails();
             }
             }else{
            System.out.println("Wrong Ticket Number");
