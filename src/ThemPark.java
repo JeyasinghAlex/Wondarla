@@ -55,6 +55,13 @@ public class ThemPark {
             }
     }
 
+    public void createGame(){
+        System.out.print("Enter the Game Name - ");
+        String gameName = GeneralUtil.getInstance().getString();
+        rides.add(new Ride(gameName, new TicketCounter()));
+        operators.get(getOperator++).configuration(rides.get(rides.size() - 1));
+    }
+
     public  void showAvailableRides(){
         System.out.println("Today Available Rides");
         for(int i = 0; i < rides.size(); i++){

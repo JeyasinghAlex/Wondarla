@@ -28,6 +28,7 @@ public class Main {
         System.out.println("3) Print Game Earning Details");
         System.out.println("4) Print total Earning of Entrance TicketCounter");
         System.out.println("5) Print canteen earning");
+        System.out.println("6)  New Game Create");
         System.out.print("Enter your Option - ");
         int option = GeneralUtil.getInstance().checkAndReturnValidInteger();
         switch (option)
@@ -52,6 +53,8 @@ public class Main {
             case 5:
                 ThemPark.getThemParkInstance().getCanteenInstance().getCanteenMoneyCollector().getAmount();
                 showUserOption();
+                break;
+            case 6:
                 break;
             default:
                 break;
