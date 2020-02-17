@@ -61,9 +61,9 @@ public class EntranceTicketCounter {
         if( visitor.setWallet(entranceTicketAmount)){
             visitors.add(visitor);
             /** DB Connections */
-           int visitorId =  VisitorDAO.insertVisitorDetails(name, gender, category, time);
-            int ticketId = TicketDAO.insertTicketDetails(ticketNumber, type);
-            VisitorDAO.insertTicketToVisitorRelation(visitorId, ticketId);
+           int visitorId =  VisitorDao.insertVisitorDetails(name, gender, category, time);
+            int ticketId = TicketDao.insertTicketDetails(ticketNumber, type);
+            VisitorDao.insertVisitorToTicketRelation(visitorId, ticketId);
            // DataBaseConnection.getDbInstance().getConnection().createStatement().executeUpdate("insert into visitors(name, gender, category, date, time) value('"+name+"','"+gender+"','"+category+"','"+date+"','"+time+"')");
            // DataBaseConnection.getDbInstance().getConnection().createStatement().executeUpdate("insert into visitors(visitor_name, visitor_gender, visitor_category, visitor_credits) value('"+name+"','"+gender+"','"+category+"','"+1000+"')");
             System.out.println("Collect your  -  "+visitor.getTicket().toString());

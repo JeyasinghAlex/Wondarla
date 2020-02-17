@@ -15,14 +15,14 @@ public class Operator {
         System.out.print("Enter the Game End Time - ");
         selectedRide.setEndTime(Integer.parseInt(getString()));
         selectedRide.setAllowAdult(isAllowRide("Adult"));
-        selectedRide.setAllowAdult(isAllowRide("Children"));
-        selectedRide.setAllowAdult(isAllowRide("Senior"));
+        selectedRide.setAllowChildren(isAllowRide("Children"));
+        selectedRide.setAllowSenior(isAllowRide("Senior"));
         selectedRide.setOperator(this);
         selectedRide.setConfigure(true);
         System.out.println(this.operatorName+ " Operate "+ selectedRide.getRideName());
     }
 
-    public void operateRide(Ride selectedRide){
+    public void operateRide(Ride selectedRide, int rideId){
         System.out.print("Enter your Ticket Number - ");
         int ticketNumber = GeneralUtil.getInstance().checkAndReturnValidInteger();
         Visitor visitor = ThemPark.getThemParkInstance().getTicketCounterInstance().searchVisitors(ticketNumber);
@@ -39,6 +39,8 @@ public class Operator {
                         //selectedRide.getTicketCounterInstance().getRecordBooks().add(new RideRecordBook(ticketNumber, ticket.getHolder()));
                         selectedRide.getTicketCounterInstance().addRecordInRecordBook(ticketNumber, ticket.getHolder());
                         selectedRide.getTicketCounterInstance().setAmount(totalAmount, selectedRide);
+                        /** DB Connection */
+                        VisitorDao.InsertVisitorToRideDetails(VisitorDao.getVisitorId(ticketNumber), rideId, ThemParkTime.getParkTimeInstance().getThemParkTime(),  totalAmount);
                         System.out.println("---------------Successfully Ride Completed--------------------");
                         ticket.setTime(rideStartingTime);
                     }else

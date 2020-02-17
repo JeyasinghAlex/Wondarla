@@ -2,7 +2,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class TicketDAO {
+public class TicketDao {
 
     public static int insertTicketDetails(int ticket_number, String ticket_type){
         PreparedStatement pstmt = null;

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+
 public class ThemPark {
 
     public static int time ;
@@ -73,11 +74,11 @@ public class ThemPark {
         System.out.println("--------------------------------------------------------");
         System.out.print("Enter your Selection - ");
         int selection = GeneralUtil.getInstance().checkAndReturnValidInteger();
-        if(selection <= rides.size()){
+        if(selection <= rides.size() && rides.get(selection-1).getConfigure()){
             System.out.println("Your Selected Ride is  -> "+ rides.get(selection-1).getRideName());
-            rides.get(selection-1).operator.operateRide(rides.get(selection-1));
+            rides.get(selection-1).operator.operateRide(rides.get(selection-1), selection);
         } else
-            System.out.println("Invalid Selection");
+            System.out.println("Invalid Selection.... Plzz Check Available Game");
     }
 
     public void showRideEarningDetails(){

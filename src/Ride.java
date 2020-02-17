@@ -71,7 +71,7 @@ public class Ride {
     }
 
     public void setConfigure(boolean configure) {
-        RideDAO.insertRideDetails(this.rideName, this.startTime, this.endTime, this.isAllowAdult, this.isAllowChildren, this.isAllowSenior);
+        RideDao.insertRideDetails(this.rideName, this.startTime, this.endTime, this.isAllowAdult, this.isAllowChildren, this.isAllowSenior);
         isConfigure = configure;
     }
 

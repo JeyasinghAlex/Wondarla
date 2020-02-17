@@ -39,7 +39,7 @@ public class Main {
                 break;
             case 2:
                 ThemPark.getThemParkInstance().getTicketCounterInstance().showVisitorsDetails();
-                VisitorDAO.getVisitorDetails();
+                VisitorDao.getVisitorDetails();
                 showUserOption();
                 break;
             case 3:
@@ -55,6 +55,8 @@ public class Main {
                 showUserOption();
                 break;
             case 6:
+                ThemPark.getThemParkInstance().createGame();
+                showUserOption();
                 break;
             default:
                 break;

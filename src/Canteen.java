@@ -27,25 +27,32 @@ public class Canteen {
            for (int i = 0; i < foods.size(); i++){
                System.out.println(i+1+")"+ foods.get(i).toString());
            }
+
             System.out.print(" Which food you need ? - ");
-            int food = GeneralUtil.getInstance().checkAndReturnValidInteger();
+            int selected_food = GeneralUtil.getInstance().checkAndReturnValidInteger();
             System.out.print("Enter the number of Quantity - ");
             int quantity = GeneralUtil.getInstance().checkAndReturnValidInteger();
 
-            if(quantity > foods.get(food-1).getQuantity()){
+           int price = foods.get(selected_food-1).getPrice();
+           if(visitor.setWallet(price*quantity) && quantity > foods.get(selected_food-1).getQuantity()){
                 System.out.println("Food is not Enough......plzz wait few minutes");
-                foods.get(food-1).importQuantity(quantity+10);
-                moneyCollector.importCharge((quantity * foods.get(food-1).getPrice()/100) * 10);
+                foods.get(selected_food-1).importQuantity(quantity+10);
+                moneyCollector.importCharge((quantity * foods.get(selected_food-1).getPrice()/100) * 10);
+
+               FoodDao.insertOrderDetails(quantity, price);
+               moneyCollector.setAmount(price*quantity, server);
+               foods.get(selected_food-1).setQuantity(quantity);
+               CanteenDao.insertCanteenDetails(VisitorDao.getVisitorId(ticketNumber), selected_food, quantity, quantity*price);
             }
 
-            int price = foods.get(food-1).getPrice();
+//            int price = foods.get(selected_food-1).getPrice();
             //int amount = Visitor.getVisitorInstance(visitor, (price * quantity));
-            if(visitor.setWallet(price*quantity)){
-                FoodDAO.insertOrderDetails(quantity, price);
-                moneyCollector.setAmount(price*quantity, server);
-                foods.get(food-1).setQuantity(quantity);
-                CanteenDAO.insertCanteenDetails();
-            }
+//            if(visitor.setWallet(price*quantity)){
+//                FoodDao.insertOrderDetails(quantity, price);
+//                moneyCollector.setAmount(price*quantity, server);
+//                foods.get(selected_food-1).setQuantity(quantity);
+//                CanteenDao.insertCanteenDetails(VisitorDao.getVisitorId(ticketNumber), selected_food, quantity, quantity*price);
+//            }
             }else{
            System.out.println("Wrong Ticket Number");
        }
