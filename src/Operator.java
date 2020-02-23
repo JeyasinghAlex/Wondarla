@@ -1,12 +1,50 @@
 public class Operator {
 
     private String operatorName;
-    //private String hisGame;
-    public Operator(String operatorName) {
-        this.operatorName = operatorName;
+    private int operatorId;
+    private String hisGame;
+    private int credits;
+    private boolean isAvailable;
+
+
+    public void setAvailable(boolean available) {
+        this.isAvailable = available;
     }
 
-    public void configuration(Ride selectedRide){
+    public boolean isAvailable() {
+        return this.isAvailable;
+    }
+
+    public String getOperatorName() {
+        return operatorName;
+    }
+
+    public Operator(String operatorName, int operatorId) {
+        this.operatorName = operatorName;
+        this.operatorId = operatorId;
+    }
+
+    public void setCredits(int credits) {
+        this.credits += credits;
+    }
+
+    public int getCredits() {
+        return credits;
+    }
+
+    public void setHisGame(String hisGame) {
+        this.hisGame = hisGame;
+    }
+
+    public String getHisGame() {
+        return hisGame;
+    }
+
+    public int getOperatorId() {
+        return operatorId;
+    }
+
+    public void configuration(Ride selectedRide, int rideId){
         System.out.println("\n------------------------------  "+ selectedRide.getRideName()+" - Game Configuration------------------------------\n");
         System.out.print("Enter the Ride Amount - ");
         selectedRide.setAmount(GeneralUtil.getInstance().checkAndReturnValidInteger());
@@ -17,8 +55,14 @@ public class Operator {
         selectedRide.setAllowAdult(isAllowRide("Adult"));
         selectedRide.setAllowChildren(isAllowRide("Children"));
         selectedRide.setAllowSenior(isAllowRide("Senior"));
+
+        /** Operator Configure */
         selectedRide.setOperator(this);
-        selectedRide.setConfigure(true);
+        setHisGame(selectedRide.getRideName());
+        setAvailable(true);
+        setCredits(1);
+
+        selectedRide.setConfigure(true, rideId, this.getOperatorId());
         System.out.println(this.operatorName+ " Operate "+ selectedRide.getRideName());
     }
 
@@ -35,16 +79,16 @@ public class Operator {
             int actualRideAmount = selectedRide.getAmount();
             int totalAmount = ticket.calculateMoney(actualRideAmount);
             if(visitorTime < rideEndingTime && rideStartingTime <= ThemParkTime.getParkTimeInstance().getThemParkTime() && selectedRide.getCategory(visitorCategory)){
-                    if(visitor.setWallet(totalAmount)){
-                        //selectedRide.getTicketCounterInstance().getRecordBooks().add(new RideRecordBook(ticketNumber, ticket.getHolder()));
-                        selectedRide.getTicketCounterInstance().addRecordInRecordBook(ticketNumber, ticket.getHolder());
-                        selectedRide.getTicketCounterInstance().setAmount(totalAmount, selectedRide);
-                        /** DB Connection */
-                        VisitorDao.InsertVisitorToRideDetails(VisitorDao.getVisitorId(ticketNumber), rideId, ThemParkTime.getParkTimeInstance().getThemParkTime(),  totalAmount);
-                        System.out.println("---------------Successfully Ride Completed--------------------");
-                        ticket.setTime(rideStartingTime);
-                    }else
-                        System.out.println("Ride Cancelled due to insufficient balance");
+                if(visitor.setWallet(totalAmount)){
+                    //selectedRide.getTicketCounterInstance().getRecordBooks().add(new RideRecordBook(ticketNumber, ticket.getHolder()));
+                    selectedRide.getTicketCounterInstance().addRecordInRecordBook(ticketNumber, ticket.getHolder());
+                    selectedRide.getTicketCounterInstance().setAmount(totalAmount, selectedRide);
+                    /** DB Connection */
+                    VisitorDao.getVisitorDaoInstance().InsertVisitorToRideDetails(VisitorDao.getVisitorDaoInstance().getVisitorId(ticketNumber), rideId, ThemParkTime.getParkTimeInstance().getThemParkTime(),  totalAmount);
+                    System.out.println("---------------Successfully Ride Completed--------------------");
+                    ticket.setTime(rideStartingTime);
+                }else
+                    System.out.println("Ride Cancelled due to insufficient balance");
             }else
                 System.out.println("You are not eligible for the game (or) Still Ride is not start (or) May be yours late");
         }else
@@ -60,7 +104,7 @@ public class Operator {
         System.out.println("------------------------>  1)  Yes");
         System.out.println("------------------------>  2)  No\n");
         System.out.print("Enter the Option  - ");
-       int option = GeneralUtil.getInstance().checkAndReturnValidInteger();
+        int option = GeneralUtil.getInstance().checkAndReturnValidInteger();
         if (option == 1)
             return true;
         else

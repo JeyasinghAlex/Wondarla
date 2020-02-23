@@ -1,8 +1,19 @@
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class CanteenDao {
 
-    public static void insertCanteenDetails(int visitor_id, int selected_food, int order_quantity, int totalPrice){
+    private static CanteenDao dao = new CanteenDao();
+    private CanteenDao(){
+
+    }
+
+    public static CanteenDao getCanteenDaoInstance(){
+        return dao;
+    }
+
+
+    public  void insertCanteenDetails(int visitor_id, int selected_food, int order_quantity, int totalPrice){
         String query = "insert into order_details (visitor_id, food_id, order_quantity, price) values (?, ?, ?,  ?)";
         try{
             PreparedStatement pstmt = DataBaseConnection.getDbInstance().getConnection().prepareStatement(query);
@@ -18,12 +29,14 @@ public class CanteenDao {
         }
     }
 
-    public int getFoodId(int id){
-        String query = "select * from food where id = ?";
+    public int getCanteenEarning(){
 
+        String query = "select sum(price) from order_details";
         try{
-            PreparedStatement pstmt = DataBaseConnection.getDbInstance().getConnection().prepareStatement(query);
-            //pstmt.
+            ResultSet rs  = DataBaseConnection.getDbInstance().getConnection().prepareStatement(query).executeQuery();
+            if(rs.next()){
+                return rs.getInt(1);
+            }
         }catch(Exception ex){
             System.out.println(ex);
         }

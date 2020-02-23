@@ -33,8 +33,8 @@ public class EntranceTicketCounter {
             category = "Senior";
         }
         LocalDate date = LocalDate.now();
-       // System.out.print("What is the time Now  ? - ");
-       // int time = Integer.parseInt(GeneralUtil.getInstance().getString());
+        // System.out.print("What is the time Now  ? - ");
+        // int time = Integer.parseInt(GeneralUtil.getInstance().getString());
         float time = ThemParkTime.getParkTimeInstance().getThemParkTime();
         System.out.println("Ticket Type  - 1) Premium");
         System.out.println("                        2) General");
@@ -47,25 +47,25 @@ public class EntranceTicketCounter {
         if (selected == 1){
             type = "Premium";
             Premium premiumTicket = new Premium(++ticketNumber, category, name, type, date, time);
-           entranceTicketAmount = premiumTicket.calculateMoney(entryFee);
+            entranceTicketAmount = premiumTicket.calculateMoney(entryFee);
             visitor = new Visitor(name, gender, premiumTicket);
             //entryFee = Visitor.getVisitorInstance(visitor, (entryFee+entranceTicketAmount));
         } else{
             type = "General";
             General generalTicket = new General(++ticketNumber, category, name, type, date, time);
-             entranceTicketAmount = generalTicket.calculateMoney(entryFee);
-             visitor = new Visitor(name, gender, generalTicket);
+            entranceTicketAmount = generalTicket.calculateMoney(entryFee);
+            visitor = new Visitor(name, gender, generalTicket);
             //entryFee = Visitor.getVisitorInstance(visitor, (entryFee + entranceTicketAmount));
         }
         System.out.println("----------------------------------------------------------------------------------------------------------------");
         if( visitor.setWallet(entranceTicketAmount)){
             visitors.add(visitor);
             /** DB Connections */
-           int visitorId =  VisitorDao.insertVisitorDetails(name, gender, category, time);
-            int ticketId = TicketDao.insertTicketDetails(ticketNumber, type);
-            VisitorDao.insertVisitorToTicketRelation(visitorId, ticketId);
-           // DataBaseConnection.getDbInstance().getConnection().createStatement().executeUpdate("insert into visitors(name, gender, category, date, time) value('"+name+"','"+gender+"','"+category+"','"+date+"','"+time+"')");
-           // DataBaseConnection.getDbInstance().getConnection().createStatement().executeUpdate("insert into visitors(visitor_name, visitor_gender, visitor_category, visitor_credits) value('"+name+"','"+gender+"','"+category+"','"+1000+"')");
+            int visitorId =  VisitorDao.getVisitorDaoInstance().insertVisitorDetails(name, gender, category, time);
+            int ticketId = TicketDao.getTicketDaoInstance().insertTicketDetails(ticketNumber, type);
+            VisitorDao.getVisitorDaoInstance().insertVisitorToTicketRelation(visitorId, ticketId);
+            // DataBaseConnection.getDbInstance().getConnection().createStatement().executeUpdate("insert into visitors(name, gender, category, date, time) value('"+name+"','"+gender+"','"+category+"','"+date+"','"+time+"')");
+            // DataBaseConnection.getDbInstance().getConnection().createStatement().executeUpdate("insert into visitors(visitor_name, visitor_gender, visitor_category, visitor_credits) value('"+name+"','"+gender+"','"+category+"','"+1000+"')");
             System.out.println("Collect your  -  "+visitor.getTicket().toString());
             this.amount += entryFee;
         }
@@ -78,9 +78,9 @@ public class EntranceTicketCounter {
 
     public Visitor searchVisitors(int ticketNumber)  {
         for(int i = 0; i < visitors.size(); i++){
-                if(visitors.get(i).getTicket().getTicketNumber() == ticketNumber){
-                    return visitors.get(i);
-                }
+            if(visitors.get(i).getTicket().getTicketNumber() == ticketNumber){
+                return visitors.get(i);
+            }
         }
         return null;
     }
@@ -94,6 +94,7 @@ public class EntranceTicketCounter {
     }
 
     public void getAmount() {
+
         System.out.println("----------------------------------------------------------------------------------------------------------------");
         System.out.println("Total Earning of - Endurance Ticket Counter - "+amount);
         System.out.println("----------------------------------------------------------------------------------------------------------------");

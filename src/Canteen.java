@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 public class Canteen {
 
-   private ArrayList<Server> servers = new ArrayList<>();
-   private ArrayList<Food> foods = new ArrayList<>();
-   private CanteenMoneyCollector moneyCollector = new CanteenMoneyCollector();
+    private ArrayList<Server> servers = new ArrayList<>();
+    private ArrayList<Food> foods = new ArrayList<>();
+    private CanteenMoneyCollector moneyCollector = new CanteenMoneyCollector();
 
     public void createFood(){
         foods.add(new Food("Briyani",  130,  20));
@@ -18,31 +18,32 @@ public class Canteen {
         return  moneyCollector;
     }
 
-     public void orderFood(Server server){
-       System.out.print("Enter your Ticket Number - ");
-       int ticketNumber = GeneralUtil.getInstance().checkAndReturnValidInteger();
-       Visitor visitor = ThemPark.getThemParkInstance().getTicketCounterInstance().searchVisitors(ticketNumber);
+    public void orderFood(Server server){
+        System.out.print("Enter your Ticket Number - ");
+        int ticketNumber = GeneralUtil.getInstance().checkAndReturnValidInteger();
+        Visitor visitor = ThemPark.getThemParkInstance().getTicketCounterInstance().searchVisitors(ticketNumber);
 
-       if(visitor != null){
-           for (int i = 0; i < foods.size(); i++){
-               System.out.println(i+1+")"+ foods.get(i).toString());
-           }
+        if(visitor != null){
+            for (int i = 0; i < foods.size(); i++){
+                System.out.println(i+1+")"+ foods.get(i).toString());
+            }
 
             System.out.print(" Which food you need ? - ");
             int selected_food = GeneralUtil.getInstance().checkAndReturnValidInteger();
             System.out.print("Enter the number of Quantity - ");
             int quantity = GeneralUtil.getInstance().checkAndReturnValidInteger();
 
-           int price = foods.get(selected_food-1).getPrice();
-           if(visitor.setWallet(price*quantity) && quantity > foods.get(selected_food-1).getQuantity()){
+            int price = foods.get(selected_food-1).getPrice();
+            if(visitor.setWallet(price*quantity) && quantity > foods.get(selected_food-1).getQuantity()){
                 System.out.println("Food is not Enough......plzz wait few minutes");
                 foods.get(selected_food-1).importQuantity(quantity+10);
                 moneyCollector.importCharge((quantity * foods.get(selected_food-1).getPrice()/100) * 10);
 
-               FoodDao.insertOrderDetails(quantity, price);
-               moneyCollector.setAmount(price*quantity, server);
-               foods.get(selected_food-1).setQuantity(quantity);
-               CanteenDao.insertCanteenDetails(VisitorDao.getVisitorId(ticketNumber), selected_food, quantity, quantity*price);
+                FoodDao.insertOrderDetails(quantity, price);
+                moneyCollector.setAmount(price*quantity, server);
+                foods.get(selected_food-1).setQuantity(quantity);
+                /** DB Connection */
+                CanteenDao.getCanteenDaoInstance().insertCanteenDetails(VisitorDao.getVisitorDaoInstance().getVisitorId(ticketNumber), selected_food, quantity, quantity*price);
             }
 
 //            int price = foods.get(selected_food-1).getPrice();
@@ -53,28 +54,28 @@ public class Canteen {
 //                foods.get(selected_food-1).setQuantity(quantity);
 //                CanteenDao.insertCanteenDetails(VisitorDao.getVisitorId(ticketNumber), selected_food, quantity, quantity*price);
 //            }
-            }else{
-           System.out.println("Wrong Ticket Number");
-       }
-   }
+        }else{
+            System.out.println("Wrong Ticket Number");
+        }
+    }
 
-   public Server selectServer(){
-       Server tempServer;
-       for(int i = 0; i < servers.size(); i++){
-           for(int j = i+1; j < servers.size(); j++){
-               if(servers.get(i).getTips() > servers.get(j).getTips()){
-                   tempServer = servers.get(i);
-                   servers.set(i, servers.get(j));
-                   servers.set(j, tempServer);
-               }
-           }
-       }
-       return servers.get(0);
-   }
+    public Server selectServer(){
+        Server tempServer;
+        for(int i = 0; i < servers.size(); i++){
+            for(int j = i+1; j < servers.size(); j++){
+                if(servers.get(i).getTips() > servers.get(j).getTips()){
+                    tempServer = servers.get(i);
+                    servers.set(i, servers.get(j));
+                    servers.set(j, tempServer);
+                }
+            }
+        }
+        return servers.get(0);
+    }
 
-   public void createServer(){
-       servers.add(new Server("alex", 0));
-       servers.add(new Server("sparrow", 0));
-       servers.add(new Server("Luu", 0));
-   }
+    public void createServer(){
+        servers.add(new Server("alex", 0));
+        servers.add(new Server("sparrow", 0));
+        servers.add(new Server("Luu", 0));
+    }
 }

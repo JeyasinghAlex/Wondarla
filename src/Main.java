@@ -39,7 +39,7 @@ public class Main {
                 break;
             case 2:
                 ThemPark.getThemParkInstance().getTicketCounterInstance().showVisitorsDetails();
-                VisitorDao.getVisitorDetails();
+                VisitorDao.getVisitorDaoInstance().getVisitorDetails();
                 showUserOption();
                 break;
             case 3:
@@ -48,10 +48,13 @@ public class Main {
                 break;
             case 4:
                 ThemPark.getThemParkInstance().getTicketCounterInstance().getAmount();
+                /** DB Connection */
+                System.out.println(TicketDao.getTicketDaoInstance().getTicketAmount());
                 showUserOption();
                 break;
             case 5:
                 ThemPark.getThemParkInstance().getCanteenInstance().getCanteenMoneyCollector().getAmount();
+                System.out.println(CanteenDao.getCanteenDaoInstance().getCanteenEarning());
                 showUserOption();
                 break;
             case 6:
@@ -93,7 +96,6 @@ public class Main {
                 showUserOption();
                 break;
             default:
-
                 break;
         }
     }

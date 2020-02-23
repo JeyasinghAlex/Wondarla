@@ -15,8 +15,10 @@ public class ThemParkTime {
         {
             while (true){
                 System.out.println("\n--------------------------------------------------Them park time is - " + time);
+                /** DB Connection */
+                RideDao.getRideDaoInstance().findRideToReadGame(time);
                 try {
-                    Thread.sleep(60000);
+                    Thread.sleep(15000);
                     if(time++ > 24){
                         time = 1;
                         System.out.println("----------Next Day Started----------");
@@ -28,9 +30,12 @@ public class ThemParkTime {
         }).start();
     }
 
+    public float getThemParkTime(){
+        return time;
+    }
 
-     public float getThemParkTime(){
-                return time;
+    private void rideToReadyGame(){
+
     }
 }
 

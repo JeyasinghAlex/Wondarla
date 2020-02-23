@@ -16,11 +16,15 @@ public class Ride {
         this.ticketCounter = ticketCounter;
     }
 
+    public Operator getOperator() {
+        return operator;
+    }
+
     public String getRideName(){
         return this.rideName;
     }
 
-   // public abstract String getRideName();
+    // public abstract String getRideName();
 
     public int getStartTime() {
         return startTime;
@@ -70,8 +74,9 @@ public class Ride {
         this.ticketCounter = ticketCounter;
     }
 
-    public void setConfigure(boolean configure) {
-        RideDao.insertRideDetails(this.rideName, this.startTime, this.endTime, this.isAllowAdult, this.isAllowChildren, this.isAllowSenior);
+    public void setConfigure(boolean configure, int rideId, int operatorId) {
+        /** DB Connection */
+        RideDao.getRideDaoInstance().insertRideDetails(rideId, this.startTime, this.endTime, this.isAllowAdult, this.isAllowChildren, this.isAllowSenior, operatorId);
         isConfigure = configure;
     }
 

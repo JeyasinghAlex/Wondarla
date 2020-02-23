@@ -20,7 +20,7 @@ public class GeneralUtil {
     public int checkAndReturnValidInteger() {
 
         try {
-               //return Integer.parseInt(scan.nextLine());
+            //return Integer.parseInt(scan.nextLine());
             return scan.nextInt();
         } catch (InputMismatchException ex){
             System.out.println("Type Of Exception is -" + ex);
@@ -33,7 +33,7 @@ public class GeneralUtil {
             System.out.println("Plzz Enter Valid Input");
             System.out.println();
             System.out.println("Enter the Correct Value");
-             checkAndReturnValidInteger();
+            checkAndReturnValidInteger();
         }
         return scan.nextInt();
     }

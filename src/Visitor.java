@@ -44,15 +44,15 @@ public class Visitor {
     }
 
     public Boolean setWallet(int wallet){
-            if(this.wallet >= wallet && getPermission(wallet) && passwordValidation()){
-                this.wallet -= wallet;
-                System.out.println(this.name + " your debited amount is - " + wallet );
-                System.out.println(this.name + " your new Wallet is - " + this.wallet+"\n");
-                return true;
-            }else{
-                System.out.println("Insufficient balance");
-                return false;
-            }
+        if(this.wallet >= wallet && getPermission(wallet) && passwordValidation()){
+            this.wallet -= wallet;
+            System.out.println(this.name + " your debited amount is - " + wallet );
+            System.out.println(this.name + " your new Wallet is - " + this.wallet+"\n");
+            return true;
+        }else{
+            System.out.println("Insufficient balance");
+            return false;
+        }
     }
 
     @Override

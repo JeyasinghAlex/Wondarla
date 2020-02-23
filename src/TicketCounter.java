@@ -24,7 +24,7 @@ public class TicketCounter {
 //-----------------------------------------------------------------------------------
 
     public void addRecordInRecordBook(int ticketNumber, String name){
-            records.add(new Records(ticketNumber, name));
+        records.add(new Records(ticketNumber, name));
     }
 
     public ArrayList<Records> getRecords() {
